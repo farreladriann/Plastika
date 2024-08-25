@@ -1,10 +1,7 @@
 # Plastika
 Aplikasi jual beli sampah dan produk dari vendor dan agen pengumpul sampah
 
-NAMA KELOMPOK ANDA
-
+Kelompok Plastika
 Ketua Kelompok:
-
-Anggota 1: 
-
+Anggota 1: Natanael Albert - 22/503184/TK/54968
 Anggota 2:

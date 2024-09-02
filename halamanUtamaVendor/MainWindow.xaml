@@ -15,7 +15,7 @@
         <!-- Search Bar -->
         <Grid Margin="10,50,10,0">
             <!-- Search Bar Background -->
-            <Border Background="LightGray" CornerRadius="15" Height="40" VerticalAlignment="Top">
+            <Border Background="LightGray" CornerRadius="15" Height="40" VerticalAlignment="Top" Margin="77,-25,96,0">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="5" Color="#888" />
                 </Border.Effect>
@@ -33,7 +33,7 @@
             </Border>
 
             <!-- Profile Button -->
-            <Ellipse Fill="DarkGray" Width="47" Height="46" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0">
+            <Ellipse Fill="DarkGray" Width="47" Height="46" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-26,10,0">
                 <Ellipse.Effect>
                     <DropShadowEffect ShadowDepth="5" Color="#888" />
                 </Ellipse.Effect>

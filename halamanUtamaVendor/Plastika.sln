@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "halamanUtamaVendor", "halamanUtamaVendor.csproj", "{90CC9FBA-6A3F-4897-B1BE-A9BF22EE32C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "..\ClassLibrary\ClassLibrary.csproj", "{F2200420-56F4-4336-981F-226A028A1266}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{90CC9FBA-6A3F-4897-B1BE-A9BF22EE32C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90CC9FBA-6A3F-4897-B1BE-A9BF22EE32C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90CC9FBA-6A3F-4897-B1BE-A9BF22EE32C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2200420-56F4-4336-981F-226A028A1266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2200420-56F4-4336-981F-226A028A1266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2200420-56F4-4336-981F-226A028A1266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2200420-56F4-4336-981F-226A028A1266}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

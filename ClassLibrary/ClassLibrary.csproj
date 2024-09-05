@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InventoryVendor.cs" />
-    <Compile Include="InventoryAgen.cs" />
+    <Compile Include="InventoryTrashes.cs" />
+    <Compile Include="InventoryProduct.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Trashes.cs" />
     <Compile Include="TransactionsProduct.cs" />

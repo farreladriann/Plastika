@@ -8,6 +8,11 @@ namespace ClassLibrary
 {
     internal class TransactionsProduct : Transactions
     {
+        public string getTransactionProductsStatus(int idBuyer, int idSeller, int idItem)
+        {
+            // get status
+        }
+
         public void newTransactionProducts(int idBuyer, int idSeller, int idItem, int quantity, string transactionMethod)
         {
             // Buat transaksi pembelian product baru

@@ -19,7 +19,7 @@ namespace Halaman_Utama_Vendor
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Page
     {
         public MainWindow()
         {
@@ -28,7 +28,11 @@ namespace Halaman_Utama_Vendor
 
         private void btnPilihClick(object sender, RoutedEventArgs e)
         {
-            FrameHalamanUtama.Content = new HalamanPemesanan();
+            NavigationService nav = NavigationService.GetNavigationService(this);
+            if (nav != null)
+            {
+                nav.Navigate(new HalamanPemesanan());
+            }
         }
     }
 }

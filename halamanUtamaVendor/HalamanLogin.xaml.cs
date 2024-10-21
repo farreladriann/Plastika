@@ -28,7 +28,11 @@ namespace halamanUtamaVendor
 
         private void btnLoginClick(object sender, RoutedEventArgs e)
         {
-            FrameLogin.Content = new MainWindow();
+            NavigationService nav = NavigationService.GetNavigationService(this);
+            if (nav != null)
+            {
+                nav.Navigate(new MainWindow());
+            }
         }
     }
 }

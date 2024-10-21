@@ -9,7 +9,7 @@
     <Grid>
         <Frame x:Name="FrameHalamanPemesanan"/>
 
-        <Button x:Name="btnKembali" Content="Kembali" HorizontalAlignment="Left" Margin="30,20,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnKembali" Content="Kembali" HorizontalAlignment="Left" Margin="30,20,0,0" VerticalAlignment="Top" Click="btnKembaliClick"/>
         <Label Content="Botol Plastik Aqua 600 mL" HorizontalAlignment="Left" Margin="30,40,0,0" VerticalAlignment="Top" FontSize="30"/>
 
         <StackPanel Orientation="Horizontal" Margin="30, 100, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top">

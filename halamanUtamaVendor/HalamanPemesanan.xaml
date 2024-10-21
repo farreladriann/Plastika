@@ -1,11 +1,11 @@
-﻿<Window x:Class="halamanUtamaVendor.HalamanPemesanan"
+﻿<Page x:Class="halamanUtamaVendor.HalamanPemesanan"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:halamanUtamaVendor"
         mc:Ignorable="d"
-        Title="HalamanPemesanan" Height="450" Width="800">
+        Title="HalamanPemesanan" Height="450" Width="800" Background="White">
     <Grid>
         <Button x:Name="btnKembali" Content="Kembali" HorizontalAlignment="Left" Margin="30,20,0,0" VerticalAlignment="Top"/>
         <Label Content="Botol Plastik Aqua 600 mL" HorizontalAlignment="Left" Margin="30,40,0,0" VerticalAlignment="Top" FontSize="30"/>
@@ -38,4 +38,4 @@
 
 
     </Grid>
-</Window>
+</Page>

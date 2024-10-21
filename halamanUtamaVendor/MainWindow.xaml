@@ -47,7 +47,10 @@
             </Border.Effect>
             <UniformGrid Columns="4" Rows="2" Margin="10">
                 <!-- Image Placeholders -->
-                <Border Background="LightGray" CornerRadius="10" Margin="5">
+                <Border x:Name="btnMenu1" CornerRadius="10" Margin="5">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/Sampahbotol1.jpg"/>
+                    </Border.Background>
                     <Border.Effect>
                         <DropShadowEffect ShadowDepth="5" Color="#888" />
                     </Border.Effect>

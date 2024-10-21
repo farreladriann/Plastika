@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "halamanUtamaVendor", "halam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "..\ClassLibrary\ClassLibrary.csproj", "{F2200420-56F4-4336-981F-226A028A1266}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{8FE17BA8-8C6C-46D0-AA15-234744B651A4}"
+	ProjectSection(SolutionItems) = preProject
+		D:\Downloads\Download\Sampahbotol1.jpg = D:\Downloads\Download\Sampahbotol1.jpg
+		D:\Downloads\Download\Sampahbotol2.png = D:\Downloads\Download\Sampahbotol2.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

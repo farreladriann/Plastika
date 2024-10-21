@@ -1,4 +1,5 @@
-﻿using halamanUtamaVendor;
+﻿using Halaman_Utama_Vendor;
+using halamanUtamaVendor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,24 +15,29 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Halaman_Utama_Vendor
+namespace halamanUtamaVendor
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for HalamanPemesanan.xaml
     /// </summary>
-    public partial class MainWindow : Page
+    public partial class HalamanPemesanan : Page
     {
-        public MainWindow()
+        public HalamanPemesanan()
         {
             InitializeComponent();
         }
 
-        private void btnPilihClick(object sender, RoutedEventArgs e)
+        private void btnPesanClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Pemesanan Berhasil!");
+        }
+
+        private void btnKembaliClick(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
             if (nav != null)
             {
-                nav.Navigate(new HalamanPemesanan());
+                nav.Navigate(new MainWindow());
             }
         }
     }

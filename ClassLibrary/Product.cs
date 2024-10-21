@@ -6,26 +6,25 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    internal class Trashes
+    internal class Products
     {
-        private int idTrashes;
-        private int idAgent;
+        private int idProducts;
+        private int idVendor;
         private string name;
         private string description;
         private int quantity;
         private int price;
         private byte image;
 
-        public int IdTrashes
+        public int IdProducts
         {
-            get { return idTrashes; }
-            set { idTrashes = value; }
+            get { return idProducts; }
         }
 
-        public int IdAgent
+        public int IdVendor
         {
-            get { return idAgent; }
-            set { idAgent = value; }
+            get { return idVendor; }
+            set { idVendor = value; }
         }
 
         public string Name
@@ -58,14 +57,14 @@ namespace ClassLibrary
             set { image = value; }
         }
 
-        public void updateTrashes(int idTrashes, int quantity)
+        public void updateProducts(int idProducts, int quantity)
         {
-            // Update the quantity of trashes in the inventory
+            // Update quantity of a product
         }
 
-        public void addTrashes(int idTrashes, string name, string description, int quantity, long price, byte image)
+        public void addProducts(int idProducts, string name, string description, int quantity, long price, byte image)
         {
-            // Add trashes to the inventory
+            // Add new product to the inventory
         }
     }
 }

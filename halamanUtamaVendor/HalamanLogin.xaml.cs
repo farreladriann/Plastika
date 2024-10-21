@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Halaman_Utama_Vendor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace halamanUtamaVendor
         public HalamanLogin()
         {
             InitializeComponent();
+        }
+
+        private void btnLoginClick(object sender, RoutedEventArgs e)
+        {
+            FrameLogin.Content = new MainWindow();
         }
     }
 }

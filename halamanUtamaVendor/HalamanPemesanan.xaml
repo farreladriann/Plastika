@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="HalamanPemesanan" Height="450" Width="800" Background="White">
     <Grid>
+        <Frame x:Name="FrameHalamanPemesanan"/>
+
         <Button x:Name="btnKembali" Content="Kembali" HorizontalAlignment="Left" Margin="30,20,0,0" VerticalAlignment="Top"/>
         <Label Content="Botol Plastik Aqua 600 mL" HorizontalAlignment="Left" Margin="30,40,0,0" VerticalAlignment="Top" FontSize="30"/>
 
@@ -33,7 +35,7 @@
             <Label Content="Kuantitas:" HorizontalAlignment="Left" Margin="0, 5, 10, 5" VerticalAlignment="Top" FontSize="15"/>
             <TextBox Width="100" Height="30" Text="1" SelectionOpacity="0.2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </StackPanel>
-        <Button x:Name="btnPesan" Content="Pesan" HorizontalAlignment="Center" Margin="0,363,0,0" VerticalAlignment="Top" Width="50" Height="30"/>
+        <Button x:Name="btnPesan" Content="Pesan" HorizontalAlignment="Center" Margin="0,363,0,0" VerticalAlignment="Top" Width="50" Height="30" Click="btnPesanClick"/>
 
 
 

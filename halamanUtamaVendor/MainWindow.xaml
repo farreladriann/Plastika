@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="Halaman Utama Vendor Gambar" Height="450" Width="800" Background="#EAEAEA">
     <Grid>
+        <Frame x:Name="FrameHalamanUtama"/>
+
         <!-- Header -->
         <StackPanel Orientation="Horizontal" Margin="10">
             <TextBlock Text="Halaman utama vendor gambar" FontSize="16" VerticalAlignment="Center"/>
@@ -54,6 +56,7 @@
                     <Border.Effect>
                         <DropShadowEffect ShadowDepth="5" Color="#888" />
                     </Border.Effect>
+                    <Button x:Name="btnPilih" Content="Pilih" Width="100" Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="LightGray" Foreground="Black" Click="btnPilihClick"/>
                 </Border>
                 <Border Background="LightGray" CornerRadius="10" Margin="5">
                     <Border.Effect>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using halamanUtamaVendor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace Halaman_Utama_Vendor
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnPilihClick(object sender, RoutedEventArgs e)
+        {
+            FrameHalamanUtama.Content = new HalamanPemesanan();
         }
     }
 }

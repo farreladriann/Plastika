@@ -1,4 +1,5 @@
-﻿using System;
+﻿using halamanUtamaVendor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,11 @@ namespace halamanUtamaVendor
         public HalamanPemesanan()
         {
             InitializeComponent();
+        }
+
+        private void btnPesanClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Pemesanan Berhasil!");
         }
     }
 }

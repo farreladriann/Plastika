@@ -33,6 +33,7 @@ bld/
 
 # Visual Studio cache/options directory
 .vs/
+Plastika/.vs
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
@@ -292,3 +293,5 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+
+.vs/

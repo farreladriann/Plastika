@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "halamanUtamaVendor", "halamanUtamaVendor.csproj", "{90CC9FBA-6A3F-4897-B1BE-A9BF22EE32C1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "..\ClassLibrary\ClassLibrary.csproj", "{F2200420-56F4-4336-981F-226A028A1266}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{8FE17BA8-8C6C-46D0-AA15-234744B651A4}"
 	ProjectSection(SolutionItems) = preProject
-		D:\Downloads\Download\Sampahbotol1.jpg = D:\Downloads\Download\Sampahbotol1.jpg
-		D:\Downloads\Download\Sampahbotol2.png = D:\Downloads\Download\Sampahbotol2.png
+		..\..\..\..\..\Downloads\Download\Sampahbotol1.jpg = ..\..\..\..\..\Downloads\Download\Sampahbotol1.jpg
+		..\..\..\..\..\Downloads\Download\Sampahbotol2.png = ..\..\..\..\..\Downloads\Download\Sampahbotol2.png
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormUI", "..\..\..\..\OTW jago ngoding\C#\Project\AddProdukdanSampah\WindowsFormUI.csproj", "{47AE020B-86A6-4687-A095-DF107FC52290}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{90CC9FBA-6A3F-4897-B1BE-A9BF22EE32C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90CC9FBA-6A3F-4897-B1BE-A9BF22EE32C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90CC9FBA-6A3F-4897-B1BE-A9BF22EE32C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90CC9FBA-6A3F-4897-B1BE-A9BF22EE32C1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F2200420-56F4-4336-981F-226A028A1266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F2200420-56F4-4336-981F-226A028A1266}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2200420-56F4-4336-981F-226A028A1266}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2200420-56F4-4336-981F-226A028A1266}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47AE020B-86A6-4687-A095-DF107FC52290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47AE020B-86A6-4687-A095-DF107FC52290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47AE020B-86A6-4687-A095-DF107FC52290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47AE020B-86A6-4687-A095-DF107FC52290}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

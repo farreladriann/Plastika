@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "..\ClassLib
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{8FE17BA8-8C6C-46D0-AA15-234744B651A4}"
 	ProjectSection(SolutionItems) = preProject
-		D:\Downloads\Download\Sampahbotol1.jpg = D:\Downloads\Download\Sampahbotol1.jpg
-		D:\Downloads\Download\Sampahbotol2.png = D:\Downloads\Download\Sampahbotol2.png
+		..\..\..\..\..\Downloads\Download\Sampahbotol1.jpg = ..\..\..\..\..\Downloads\Download\Sampahbotol1.jpg
+		..\..\..\..\..\Downloads\Download\Sampahbotol2.png = ..\..\..\..\..\Downloads\Download\Sampahbotol2.png
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormUI", "..\..\..\..\OTW jago ngoding\C#\Project\AddProdukdanSampah\WindowsFormUI.csproj", "{47AE020B-86A6-4687-A095-DF107FC52290}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

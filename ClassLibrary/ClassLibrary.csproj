@@ -44,9 +44,9 @@
     <Compile Include="InventoryTrashes.cs" />
     <Compile Include="InventoryProduct.cs" />
     <Compile Include="Inventory.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Trashes.cs" />
     <Compile Include="TransactionsProduct.cs" />
-    <Compile Include="Product.cs" />
     <Compile Include="TransactionsTrashes.cs" />
     <Compile Include="Transactions.cs" />
     <Compile Include="Account.cs" />

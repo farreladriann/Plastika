@@ -1,0 +1,43 @@
+﻿<Page x:Class="halamanUtamaVendor.HalamanPemesanan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:halamanUtamaVendor"
+        mc:Ignorable="d"
+        Title="HalamanPemesanan" Height="450" Width="800" Background="White">
+    <Grid>
+        <Frame x:Name="FrameHalamanPemesanan"/>
+
+        <Button x:Name="btnKembali" Content="Kembali" HorizontalAlignment="Left" Margin="30,20,0,0" VerticalAlignment="Top" Click="btnKembaliClick"/>
+        <Label Content="Botol Plastik Aqua 600 mL" HorizontalAlignment="Left" Margin="30,40,0,0" VerticalAlignment="Top" FontSize="30"/>
+
+        <StackPanel Orientation="Horizontal" Margin="30, 100, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <StackPanel.Background>
+                <ImageBrush/>
+            </StackPanel.Background>
+            <Rectangle Width="196" Height="100" Margin="10">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/Images/Sampahbotol1.jpg" Stretch="Uniform"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="196" Height="100" Margin="10">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/Images/Sampahbotol2.png" Stretch="Uniform"/>
+                </Rectangle.Fill>
+            </Rectangle>
+        </StackPanel>
+
+        <Label Content="Deskripsi" HorizontalAlignment="Left" Margin="30,220,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <Label Content="Sampah Botol Aqua sebesar 600 mL" HorizontalAlignment="Left" Margin="30,240,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <Label Content="Harga: Rp 1.000,00 / botol" HorizontalAlignment="Left" Margin="30,260,0,0" VerticalAlignment="Top" FontSize="15"/>
+        <StackPanel Orientation="Horizontal" Margin="30, 280, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label Content="Kuantitas:" HorizontalAlignment="Left" Margin="0, 5, 10, 5" VerticalAlignment="Top" FontSize="15"/>
+            <TextBox Width="100" Height="30" Text="1" SelectionOpacity="0.2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <Button x:Name="btnPesan" Content="Pesan" HorizontalAlignment="Center" Margin="0,363,0,0" VerticalAlignment="Top" Width="50" Height="30" Click="btnPesanClick"/>
+
+
+
+    </Grid>
+</Page>

@@ -44,7 +44,7 @@ namespace ClassLibrary
         public int Quantity
         {
             get { return quantity; }
-            set { quantity = value}
+            set { quantity = value; }
         }
 
         public int Price

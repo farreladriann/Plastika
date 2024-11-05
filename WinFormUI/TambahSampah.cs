@@ -1,0 +1,163 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Npgsql;
+
+namespace AddProdukdanSampah
+{
+    public partial class TambahSampah : Form
+    {
+        private HalamanUtama mainForm;
+        public TambahSampah(HalamanUtama halamanutama)
+        {   
+            InitializeComponent();
+            mainForm = halamanutama;
+
+
+        }
+        private NpgsqlConnection conn;
+        string connstring = "Host=aws-0-ap-southeast-1.pooler.supabase.com;Username=postgres.txscowudpcbnhhzeaiwh;Password=kucing12345677778;" +
+            "Database=plastika";
+        public static NpgsqlCommand cmd;
+        private string sql = null;
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            conn = new NpgsqlConnection(connstring);
+
+        }
+
+        
+
+        private void btnUploadFotoSampah_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Choose Image(*.jpg; *.png; *.gif)|*.jpg; *.png; *.gif";
+            if (opf.ShowDialog() == DialogResult.OK)
+            {
+                tbFotoSampah.Text = opf.FileName;
+                pbFotoSampah.Image = new Bitmap(opf.FileName);
+            }
+        }
+
+      
+
+        private void btnTambahSampah_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Menmabhakan trashes instans
+                string name = tbNamaSampah.Text;
+                string description = tbDeskripsiSampah.Text;
+                int quantity = int.Parse(tbKuantitasSampah.Text);
+                long price = long.Parse(tbHargaSampah.Text);
+                byte[] imageBytes = null;
+
+                // Convert image dari PictureBox menjadi byte array
+                if (pbFotoSampah.Image != null)
+                {
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        pbFotoSampah.Image.Save(ms, pbFotoSampah.Image.RawFormat);
+                        imageBytes = ms.ToArray();
+                    }
+                }
+
+                // Membuat object dari trashes
+                Trashes newItem = new Trashes(name, description, quantity, price, imageBytes);
+
+                // open koneksi database
+                conn.Open();
+                sql = @"select * from insert_trashes(:_trash_name, :_description, :_quantity, :_price, :_trash_image)";
+                cmd = new NpgsqlCommand(sql, conn);
+
+                // Mengugnakan properti dari trashes untuk mengisi parameter
+                cmd.Parameters.AddWithValue("_trash_name", newItem.Trash_Name);
+                cmd.Parameters.AddWithValue("_description", newItem.Description);
+                cmd.Parameters.AddWithValue("_quantity", newItem.Quantity);
+                cmd.Parameters.AddWithValue("_price", newItem.Price);
+
+                // mengatur parameter image jika null maka akan diisi dengan DBNull.Value agar tidak error
+                var imageParameter = new NpgsqlParameter("_trash_image", NpgsqlTypes.NpgsqlDbType.Bytea);
+                if (newItem.Trash_Image != null)
+                {
+                    imageParameter.Value = newItem.Trash_Image;
+                }
+                else
+                {
+                    imageParameter.Value = DBNull.Value;
+                }
+                cmd.Parameters.Add(imageParameter);
+
+                // Execute the command and check the result
+                if ((int)cmd.ExecuteScalar() == 1)
+                {
+                    MessageBox.Show("Data Sampah Berhasil Ditambahkan");
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Insert FAIL!!!");
+            }
+            finally
+            {
+                // Ensure the connection is closed even if an error occurs
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+
+
+
+        private void btnKembali_Click(object sender, EventArgs e)
+        {
+            // Get the trash name and image from the input fields
+            string trashName = tbNamaSampah.Text;
+            byte[] trashImage = GetImageBytesFromPictureBox(pbFotoSampah);
+
+            // Show the main form and update its display
+            mainForm.Show();
+            mainForm.UpdateTrashDisplay(trashImage, trashName);
+
+            mainForm.BringToFront();
+
+            // Close the current form (TambahSampah)
+            this.Hide();
+        }
+
+        // Helper function to convert PictureBox image to byte array
+        private byte[] GetImageBytesFromPictureBox(PictureBox pictureBox)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                pictureBox.Image.Save(ms, pictureBox.Image.RawFormat);
+                return ms.ToArray();
+            }
+        }
+
+
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+   
+    }
+}

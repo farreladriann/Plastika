@@ -12,7 +12,7 @@
 *.userprefs
 
 # App config file
-/WinFormUI/App.config
+App.config
 
 
 # Mono auto generated files

@@ -147,7 +147,6 @@
             this.tbDeskripsiSampah.Name = "tbDeskripsiSampah";
             this.tbDeskripsiSampah.Size = new System.Drawing.Size(184, 22);
             this.tbDeskripsiSampah.TabIndex = 16;
-            this.tbDeskripsiSampah.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label1
             // 
@@ -158,7 +157,6 @@
             this.label1.Size = new System.Drawing.Size(118, 31);
             this.label1.TabIndex = 15;
             this.label1.Text = "Deskripsi: ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnKembali
             // 

@@ -11,6 +11,9 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+# App config file
+D:\UGM\5th Semester\Junior Project\Plastika\WinFormUI\app.config
+
 # Mono auto generated files
 mono_crash.*
 

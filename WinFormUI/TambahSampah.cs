@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using DotNetEnv;
+using System.Configuration;
 
 namespace AddProdukdanSampah
 {
@@ -16,15 +18,15 @@ namespace AddProdukdanSampah
     {
         private HalamanUtama mainForm;
         public TambahSampah(HalamanUtama halamanutama)
-        {   
+        {
             InitializeComponent();
             mainForm = halamanutama;
 
 
         }
+        
         private NpgsqlConnection conn;
-        string connstring = "Host=aws-0-ap-southeast-1.pooler.supabase.com;Username=postgres.txscowudpcbnhhzeaiwh;Password=kucing12345677778;" +
-            "Database=plastika";
+        string connstring = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
         public static NpgsqlCommand cmd;
         private string sql = null;
         private void Form1_Load(object sender, EventArgs e)
@@ -33,7 +35,7 @@ namespace AddProdukdanSampah
 
         }
 
-        
+
 
         private void btnUploadFotoSampah_Click(object sender, EventArgs e)
         {
@@ -46,7 +48,7 @@ namespace AddProdukdanSampah
             }
         }
 
-      
+
 
         private void btnTambahSampah_Click(object sender, EventArgs e)
         {
@@ -148,16 +150,8 @@ namespace AddProdukdanSampah
 
 
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+  
 
-        }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-   
     }
 }

@@ -12,7 +12,8 @@
 *.userprefs
 
 # App config file
-D:\UGM\5th Semester\Junior Project\Plastika\WinFormUI\app.config
+/WinFormUI/App.config
+
 
 # Mono auto generated files
 mono_crash.*

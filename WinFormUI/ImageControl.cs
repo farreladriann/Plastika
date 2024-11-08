@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormUI
+namespace AddProdukdanSampah
 {
-    public partial class Form1 : Form
+    public partial class FotoSampahControl : UserControl
     {
-        public Form1()
+        public FotoSampahControl()
         {
             InitializeComponent();
         }
+
+        
     }
 }

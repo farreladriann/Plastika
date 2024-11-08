@@ -8,7 +8,7 @@ namespace AddProdukdanSampah
 {
     public class Trashes
     {
-        
+        private int id_trash;
         private string trash_name;
         private string description;
         private int quantity;
@@ -16,6 +16,12 @@ namespace AddProdukdanSampah
         private byte[] trash_image;
 
         
+        public int Id_Trash
+        {
+            get { return id_trash; }
+            set { id_trash = value; }
+
+        }
         public string Trash_Name
         {
             get { return trash_name; }
@@ -53,7 +59,7 @@ namespace AddProdukdanSampah
             this.description = description;
             this.quantity = quantity;
             this.price = price;
-            this.trash_name = trash_name;
+            this.trash_image = trash_image;
         }
     }
 

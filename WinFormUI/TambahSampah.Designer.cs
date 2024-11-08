@@ -190,7 +190,7 @@
             this.Controls.Add(this.lblKategoriSampah);
             this.Name = "TambahSampah";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            //this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoSampah)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

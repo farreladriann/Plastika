@@ -82,5 +82,12 @@ namespace AddProdukdanSampah
             //var orderForm = new OrderForm(trashId);
             //orderForm.Show();
         }
+
+        private void pbMaps_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var maps = new Maps();
+            maps.Show();
+        }
     }
 }

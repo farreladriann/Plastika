@@ -68,7 +68,8 @@ namespace AddProdukdanSampah
         }
         public static List<Trashes> GetTrashes()
         {
-            List<Trashes> trashes = new List<Trashes>();
+            List<Trashes> trashes = new List<
+                Trashes>();
             using (var conn = new NpgsqlConnection(connstring))
             {
                 conn.Open();

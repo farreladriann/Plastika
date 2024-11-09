@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HalamanUtamaNew));
             this.flpHalamanUtama = new System.Windows.Forms.FlowLayoutPanel();
             this.tbSearch = new System.Windows.Forms.TextBox();
+            this.pbMaps = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMaps)).BeginInit();
             this.SuspendLayout();
             // 
             // flpHalamanUtama
@@ -48,15 +51,28 @@
             this.tbSearch.TabIndex = 0;
             this.tbSearch.Text = "Search";
             // 
+            // pbMaps
+            // 
+            this.pbMaps.Image = ((System.Drawing.Image)(resources.GetObject("pbMaps.Image")));
+            this.pbMaps.Location = new System.Drawing.Point(473, 34);
+            this.pbMaps.Name = "pbMaps";
+            this.pbMaps.Size = new System.Drawing.Size(45, 44);
+            this.pbMaps.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMaps.TabIndex = 1;
+            this.pbMaps.TabStop = false;
+            this.pbMaps.Click += new System.EventHandler(this.pbMaps_Click);
+            // 
             // HalamanUtamaNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pbMaps);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.flpHalamanUtama);
             this.Name = "HalamanUtamaNew";
             this.Text = "HalamanUtamaNew";
+            ((System.ComponentModel.ISupportInitialize)(this.pbMaps)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -66,5 +82,6 @@
 
         private System.Windows.Forms.FlowLayoutPanel flpHalamanUtama;
         private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.PictureBox pbMaps;
     }
 }

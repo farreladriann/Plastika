@@ -87,52 +87,78 @@ namespace AddProdukdanSampah
         let marker;
 
         function initMap() {
-            const yogyakarta = { lat: -7.797068, lng: 110.370529 };
+            // Cek apakah dukungan geolocation ada
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
 
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: yogyakarta,
-                zoom: 13,
-                mapTypeId: 'roadmap' // Default to road map
-            });
+                    // Inisialisasi peta di lokasi pengguna
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: userLocation,
+                        zoom: 13,
+                        mapTypeId: 'roadmap' // Default to road map
+                    });
 
-            marker = new google.maps.Marker({
-                position: yogyakarta,
-                map: map,
-                draggable: true
-            });
+                    marker = new google.maps.Marker({
+                        position: userLocation,
+                        map: map,
+                        draggable: true // marker bisa dipindah-pindah
+                    });
 
-            const searchBox = new google.maps.places.SearchBox(
-                document.getElementById('searchBox')
-            );
+                    const searchBox = new google.maps.places.SearchBox(
+                        document.getElementById('searchBox')
+                    );
 
-            map.addListener('bounds_changed', function() {
-                searchBox.setBounds(map.getBounds());
-            });
+                    map.addListener('bounds_changed', function() {
+                        searchBox.setBounds(map.getBounds());
+                    });
 
-            searchBox.addListener('places_changed', function() {
-                const places = searchBox.getPlaces();
-                
-                if (places.length === 0) {
-                    return;
-                }
+                    searchBox.addListener('places_changed', function() {
+                        const places = searchBox.getPlaces();
+                        
+                        if (places.length === 0) {
+                            return;
+                        }
 
-                const place = places[0];
+                        const place = places[0];
 
-                if (!place.geometry) {
-                    console.log('Returned place contains no geometry');
-                    return;
-                }
+                        if (!place.geometry) {
+                            console.log('Returned place contains no geometry');
+                            return;
+                        }
 
-                // Set posisi marker dan center map
-                marker.setPosition(place.geometry.location);
-                map.setCenter(place.geometry.location);
-            });
+                        // Set posisi marker dan center map pada tempat yang dicari
+                        marker.setPosition(place.geometry.location);
+                        map.setCenter(place.geometry.location);
+                    });
+
+                }, function() {
+                    // Jika pengguna tidak memberikan izin untuk akses lokasi
+                    handleLocationError(true, map.getCenter());
+                });
+            } else {
+                // Browser tidak mendukung Geolocation
+                handleLocationError(false, map.getCenter());
+            }
+        }
+
+        function handleLocationError(browserHasGeolocation, pos) {
+            const infoWindow = new google.maps.InfoWindow();
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
         }
     </script>
 </body>
 </html>";
         }
-
     }
+
+
 }
 

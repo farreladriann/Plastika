@@ -11,20 +11,21 @@ using System.Windows.Forms;
 using Npgsql;
 using DotNetEnv;
 using System.Configuration;
+using AddProdukdanSampah;
 
-namespace AddProdukdanSampah
+namespace AddProdukdanProduk
 {
-    public partial class TambahSampah : Form
+    public partial class TambahProduk : Form
     {
         private HalamanUtamaNew mainForm;
-        public TambahSampah(HalamanUtamaNew halamanutama)
+        public TambahProduk(HalamanUtamaNew halamanutama)
         {
             InitializeComponent();
             mainForm = halamanutama;
 
 
         }
-        
+
         //private NpgsqlConnection conn;
         //string connstring = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
         //public static NpgsqlCommand cmd;
@@ -37,42 +38,42 @@ namespace AddProdukdanSampah
 
 
 
-        private void btnUploadFotoSampah_Click(object sender, EventArgs e)
+        private void btnUploadFotoProduk_Click(object sender, EventArgs e)
         {
             OpenFileDialog opf = new OpenFileDialog();
             opf.Filter = "Choose Image(*.jpg; *.png; *.gif)|*.jpg; *.png; *.gif";
             if (opf.ShowDialog() == DialogResult.OK)
             {
-                tbFotoSampah.Text = opf.FileName;
-                pbFotoSampah.Image = new Bitmap(opf.FileName);
+                tbFotoProduk.Text = opf.FileName;
+                pbFotoProduk.Image = new Bitmap(opf.FileName);
             }
         }
 
 
 
-        private void btnTambahSampah_Click(object sender, EventArgs e)
+        private void btnTambahProduk_Click(object sender, EventArgs e)
         {
             try
             {
                 // Menmabhakan trashes instans
-                string name = tbNamaSampah.Text;
-                string description = tbDeskripsiSampah.Text;
-                int quantity = int.Parse(tbKuantitasSampah.Text);
-                long price = long.Parse(tbHargaSampah.Text);
+                string name = tbNamaProduk.Text;
+                string description = tbDeskripsiProduk.Text;
+                int quantity = int.Parse(tbKuantitasProduk.Text);
+                long price = long.Parse(tbHargaProduk.Text);
                 byte[] imageBytes = null;
 
                 // Convert image dari PictureBox menjadi byte array
-                if (pbFotoSampah.Image != null)
+                if (pbFotoProduk.Image != null)
                 {
                     using (MemoryStream ms = new MemoryStream())
                     {
-                        pbFotoSampah.Image.Save(ms, pbFotoSampah.Image.RawFormat);
+                        pbFotoProduk.Image.Save(ms, pbFotoProduk.Image.RawFormat);
                         imageBytes = ms.ToArray();
                     }
                 }
 
                 // Membuat object dari trashes
-                Trashes newTrash = new Trashes(name, description, quantity, price, imageBytes);
+                Products newProduct = new Products(name, description, quantity, price, imageBytes);
 
                 // open koneksi database
                 //    conn.Open();
@@ -124,7 +125,7 @@ namespace AddProdukdanSampah
                 //    // Execute the command and check the result
                 //    if ((int)cmd.ExecuteScalar() == 1)
                 //    {
-                //        MessageBox.Show("Data Sampah Berhasil Ditambahkan");
+                //        MessageBox.Show("Data Produk Berhasil Ditambahkan");
                 //    }
                 //    conn.Close();
                 //}
@@ -140,7 +141,7 @@ namespace AddProdukdanSampah
                 //        conn.Close();
                 //    }
                 //}
-                Trashes.InsertTrash(newTrash);
+                Products.InsertProduct(newProduct);
                 MessageBox.Show("Data berhasil ditambahkan!");
                 // Show success message
 
@@ -151,7 +152,7 @@ namespace AddProdukdanSampah
                 MessageBox.Show("Error: " + ex.Message, "Insert FAIL!!!");
             }
 
-            
+
         }
 
         private void btnKembali_Click(object sender, EventArgs e)
@@ -175,8 +176,8 @@ namespace AddProdukdanSampah
         //    private void btnKembali_Click(object sender, EventArgs e)
         //{
         //    // Get the trash name and image from the input fields
-        //    string trashName = tbNamaSampah.Text;
-        //    byte[] trashImage = GetImageBytesFromPictureBox(pbFotoSampah);
+        //    string trashName = tbNamaProduk.Text;
+        //    byte[] trashImage = GetImageBytesFromPictureBox(pbFotoProduk);
 
         //    // Show the main form and update its display
         //    mainForm.Show();
@@ -184,7 +185,7 @@ namespace AddProdukdanSampah
 
         //    mainForm.BringToFront();
 
-        //    // Close the current form (TambahSampah)
+        //    // Close the current form (TambahProduk)
         //    this.Hide();
         //}
 

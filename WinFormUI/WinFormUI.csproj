@@ -101,14 +101,22 @@
     <Compile Include="ImageControl.Designer.cs">
       <DependentUpon>ImageControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Item.cs" />
     <Compile Include="Maps.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Maps.Designer.cs">
       <DependentUpon>Maps.cs</DependentUpon>
     </Compile>
+    <Compile Include="Products.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TambahProduk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TambahProduk.Designer.cs">
+      <DependentUpon>TambahProduk.cs</DependentUpon>
+    </Compile>
     <Compile Include="TambahSampah.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +142,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TambahProduk.resx">
+      <DependentUpon>TambahProduk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TambahSampah.resx">
       <DependentUpon>TambahSampah.cs</DependentUpon>
     </EmbeddedResource>

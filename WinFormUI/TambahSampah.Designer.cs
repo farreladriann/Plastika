@@ -173,14 +173,14 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 171F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 172F));
             this.tableLayoutPanel1.Controls.Add(this.tbNamaSampah, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnKembali, 3, 10);
-            this.tableLayoutPanel1.Controls.Add(this.lblKategoriSampah, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tbDeskripsiSampah, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnTambahSampah, 2, 10);
             this.tableLayoutPanel1.Controls.Add(this.btnUploadFotoSampah, 0, 4);
@@ -191,8 +191,8 @@
             this.tableLayoutPanel1.Controls.Add(this.tbFotoSampah, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.tbHargaSampah, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblHargaSatuan, 0, 3);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblKategoriSampah, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 11;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.90244F));
@@ -208,6 +208,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
             this.tableLayoutPanel1.TabIndex = 18;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // TambahSampah
             // 

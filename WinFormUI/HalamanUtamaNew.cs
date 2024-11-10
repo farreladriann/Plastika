@@ -8,38 +8,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormUI;
 
 namespace AddProdukdanSampah
 {
     public partial class HalamanUtamaNew : Form
     {
+        private List<Trashes> allTrashes; // Store all trash items
+
         public HalamanUtamaNew()
         {
             InitializeComponent();
             LoadData(); // Panggil LoadData di sini
+            tbSearch.TextChanged += tbSearch_TextChanged; // Add event handler for search text box
         }
 
         private void LoadData()
         {
-            var trashes = DatabaseHelper.GetTrashes(); // Ambil data sampah dari database
+            allTrashes = DatabaseHelper.GetTrashes(); // Assume this retrieves the data
+            DisplayTrashes(allTrashes); // Display all items initially
+        }
 
-            if (trashes == null || trashes.Count == 0)
-            {
-                MessageBox.Show("Tidak ada data sampah untuk ditampilkan.", "Info");
-                return;
-            }
+        private void DisplayTrashes(List<Trashes> trashes)
+        {
+            flpHalamanUtama.Controls.Clear(); // Clear previous items
 
             foreach (var trash in trashes)
             {
-                // Buat panel untuk setiap item
+                // Create a panel for each item
                 Panel panel = new Panel()
                 {
                     BorderStyle = BorderStyle.FixedSingle,
-                    Size = new Size(200, 300), // Sesuaikan ukuran panel
-                    Margin = new Padding(10)
+                    Size = new Size(200, 250),
+                    Margin = new Padding(20),
+                    BackColor = Color.Azure
                 };
 
-                // Gambar sampah
+                // Image setup
                 PictureBox pic = new PictureBox();
                 if (trash.Trash_Image != null)
                 {
@@ -49,45 +54,51 @@ namespace AddProdukdanSampah
                     }
                 }
                 pic.SizeMode = PictureBoxSizeMode.StretchImage;
-                pic.Size = new Size(180, 180); // Sesuaikan ukuran PictureBox
-                pic.Click += (s, e) => { NavigateToOrderPage(trash.Id_Trash); };
+                pic.Size = new Size(180, 180);
+                pic.Location = new Point((panel.Width - pic.Width) / 2, 10);
+
                 panel.Controls.Add(pic);
 
-                // Tambahkan nama
+                // Name label
                 Label lblName = new Label
                 {
                     Text = trash.Trash_Name,
                     Location = new Point(10, 190),
-                    AutoSize = true
+                    AutoSize = true,
+                    Font = new Font("Arial", 12, FontStyle.Bold, GraphicsUnit.Point),
+                    ForeColor = Color.Blue
                 };
                 panel.Controls.Add(lblName);
 
-                // Tambahkan harga
+                // Price label
                 Label lblPrice = new Label
                 {
                     Text = trash.Price.ToString("C"),
-                    Location = new Point(10, 220),
-                    AutoSize = true
+                    Location = new Point(10, 210),
+                    AutoSize = true,
+                    Font = new Font("Arial", 10, FontStyle.Regular, GraphicsUnit.Point),
+                    ForeColor = Color.Green
                 };
                 panel.Controls.Add(lblPrice);
 
-                // Tambahkan panel ke FlowLayoutPanel
+                // Add the panel to the FlowLayoutPanel
                 flpHalamanUtama.Controls.Add(panel);
             }
         }
 
-        private void NavigateToOrderPage(int trashId)
+        private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            // Implementasi navigasi ke halaman pemesanan
-            //var orderForm = new OrderForm(trashId);
-            //orderForm.Show();
+            string searchTerm = tbSearch.Text.ToLower(); // Get search term and convert to lowercase
+            var filteredTrashes = allTrashes.Where(trash => trash.Trash_Name.ToLower().Contains(searchTerm)).ToList(); // Filter trash items based on search term
+            DisplayTrashes(filteredTrashes); // Display filtered items
         }
 
         private void pbMaps_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             var maps = new Maps();
             maps.Show();
         }
     }
+
 }

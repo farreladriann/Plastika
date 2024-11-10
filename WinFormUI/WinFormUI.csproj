@@ -36,8 +36,14 @@
     <Reference Include="DotNetEnv, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\DotNetEnv.3.1.0\lib\netstandard1.3\DotNetEnv.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Npgsql, Version=8.0.5.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>packages\Npgsql.8.0.5\lib\netstandard2.0\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.11.4.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>packages\RestSharp.106.11.4\lib\net452\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -51,6 +57,7 @@
     <Reference Include="System.Text.Json, Version=8.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Text.Json.8.0.5\lib\net462\System.Text.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +70,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="SnapPaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SnapPaymentForm.Designer.cs">
+      <DependentUpon>SnapPaymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HalamanPemesanan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HalamanPemesanan.Designer.cs">
+      <DependentUpon>HalamanPemesanan.cs</DependentUpon>
+    </Compile>
     <Compile Include="HalamanUtamaNew.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +94,7 @@
     <Compile Include="ImageControl.Designer.cs">
       <DependentUpon>ImageControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Midtrans.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TambahSampah.cs">
@@ -84,6 +104,9 @@
       <DependentUpon>TambahSampah.cs</DependentUpon>
     </Compile>
     <Compile Include="Trashes.cs" />
+    <EmbeddedResource Include="HalamanPemesanan.resx">
+      <DependentUpon>HalamanPemesanan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HalamanUtamaNew.resx">
       <DependentUpon>HalamanUtamaNew.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +122,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SnapPaymentForm.resx">
+      <DependentUpon>SnapPaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TambahSampah.resx">
       <DependentUpon>TambahSampah.cs</DependentUpon>
     </EmbeddedResource>

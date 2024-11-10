@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormUI;
 
 namespace AddProdukdanSampah
 {
@@ -50,7 +51,7 @@ namespace AddProdukdanSampah
                 }
                 pic.SizeMode = PictureBoxSizeMode.StretchImage;
                 pic.Size = new Size(180, 180); // Sesuaikan ukuran PictureBox
-                pic.Click += (s, e) => { NavigateToOrderPage(trash.Id_Trash); };
+                pic.Click += (s, e) => { NavigateToOrderPage(trash); };
                 panel.Controls.Add(pic);
 
                 // Tambahkan nama
@@ -76,11 +77,11 @@ namespace AddProdukdanSampah
             }
         }
 
-        private void NavigateToOrderPage(int trashId)
+        private void NavigateToOrderPage(Trashes trash)
         {
             // Implementasi navigasi ke halaman pemesanan
-            //var orderForm = new OrderForm(trashId);
-            //orderForm.Show();
+            var orderForm = new HalamanPemesanan(trash);
+            orderForm.Show();
         }
     }
 }

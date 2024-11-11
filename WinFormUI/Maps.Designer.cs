@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.wbvMaps = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.btnKembali = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.wbvMaps)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,11 +44,24 @@
             this.wbvMaps.TabIndex = 0;
             this.wbvMaps.ZoomFactor = 1D;
             // 
+            // btnKembali
+            // 
+            this.btnKembali.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnKembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKembali.Location = new System.Drawing.Point(0, 392);
+            this.btnKembali.Name = "btnKembali";
+            this.btnKembali.Size = new System.Drawing.Size(789, 50);
+            this.btnKembali.TabIndex = 2;
+            this.btnKembali.Text = "Kembali";
+            this.btnKembali.UseVisualStyleBackColor = true;
+            this.btnKembali.Click += new System.EventHandler(this.btnKembali_Click);
+            // 
             // Maps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 442);
+            this.Controls.Add(this.btnKembali);
             this.Controls.Add(this.wbvMaps);
             this.Name = "Maps";
             this.Text = "Maps";
@@ -59,5 +73,6 @@
         #endregion
 
         private Microsoft.Web.WebView2.WinForms.WebView2 wbvMaps;
+        private System.Windows.Forms.Button btnKembali;
     }
 }

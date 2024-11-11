@@ -67,7 +67,8 @@
             this.tableLayoutPanel1.Controls.Add(this.tbHargaProduk, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblHargaSatuan, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblKategoriProduk, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 8);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 11;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.90244F));

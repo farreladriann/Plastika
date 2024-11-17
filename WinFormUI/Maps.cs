@@ -10,13 +10,15 @@ namespace AddProdukdanSampah
     public partial class Maps : Form
     {
         private WebView2 webView;
+        private string currentUsername;
 
-        public Maps()
+        public Maps(string username)
         {
             InitializeComponent();
             InitializeWebView(); // Inisialisasi WebView
             Env.Load();
             LoadMap();
+            currentUsername = username;
         }
 
         private void InitializeWebView()
@@ -162,7 +164,7 @@ namespace AddProdukdanSampah
         private void btnKembali_Click(object sender, EventArgs e)
         {
             this.Hide(); // Kembali ke halaman utama
-            HalamanUtamaNew halamanUtama = new HalamanUtamaNew();
+            HalamanUtamaNew halamanUtama = new HalamanUtamaNew(currentUsername);
             halamanUtama.Show();
         }
     }

@@ -4,6 +4,7 @@ using System.Data;
 using Npgsql; // Make sure you reference this
 using System.Windows.Forms;
 using System.Configuration;
+using DotNetEnv;
 
 namespace AddProdukdanSampah
 {
@@ -15,20 +16,25 @@ namespace AddProdukdanSampah
         // public int Id_Agent { get; set; }
 
         // Constructor
-        public Trashes(string name, string description, int quantity, long price, byte[] image)
-            : base(name, description, quantity, price, image) // Call base class constructor
-        { }
+        public Trashes(int id_role, string name, string description, int quantity, long price, byte[] image)
+                : base(id_role, name, description, quantity, price, image) { }
+
 
         // Insert method
-        public static void InsertTrash(Trashes trash)
+        public static void InsertTrash(Trashes trash, int accountId)
         {
+
+            Env.Load();
+
+            string connstring = Env.GetString("DB_URI");
+            Console.WriteLine(string.IsNullOrEmpty(connstring) ? "Koneksi string tidak ditemukan." : connstring);
             using (var conn = new NpgsqlConnection(connstring))
             {
                 try
                 {
                     conn.Open();
-                    string sql = @"INSERT INTO pub_plastika.""Trashes"" (trash_name, description, quantity, price, trash_image) 
-                                   VALUES (@trash_name, @description, @quantity, @price, @trash_image)";
+                    string sql = @"INSERT INTO pub_plastika.""Trashes"" (trash_name, description, quantity, price, trash_image, id_account) 
+                                   VALUES (@trash_name, @description, @quantity, @price, @trash_image, @accountId)";
                     using (var cmd = new NpgsqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@trash_name", trash.Name);
@@ -49,6 +55,7 @@ namespace AddProdukdanSampah
 
                         
                         cmd.Parameters.Add(imageParameter);
+                        cmd.Parameters.AddWithValue("@accountId", accountId);
 
                         int result = cmd.ExecuteNonQuery();
                         MessageBox.Show(result > 0 ? "Data Sampah Berhasil Ditambahkan" : "Data Sampah Gagal Ditambahkan");
@@ -65,16 +72,22 @@ namespace AddProdukdanSampah
         public static List<Trashes> GetTrashes()
         {
             List<Trashes> trashes = new List<Trashes>();
+            
+            Env.Load();
+
+            string connstring = Env.GetString("DB_URI");
+            Console.WriteLine(string.IsNullOrEmpty(connstring) ? "Koneksi string tidak ditemukan." : connstring); 
             using (var conn = new NpgsqlConnection(connstring))
             {
                 conn.Open();
-                using (var cmd = new NpgsqlCommand(@"SELECT id_trash, trash_name, description, quantity, price, trash_image FROM pub_plastika.""Trashes""", conn))
+                using (var cmd = new NpgsqlCommand(@"SELECT id_trash, id_account, trash_name, description, quantity, price, trash_image FROM pub_plastika.""Trashes""", conn))
                 {
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             var trash = new Trashes(
+                                (int)reader["id_account"],
                                 reader["trash_name"].ToString(),
                                 reader["description"].ToString(),
                                 (int)reader["quantity"],

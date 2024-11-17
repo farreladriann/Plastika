@@ -10,17 +10,23 @@ namespace AddProdukdanSampah
     public class Item
     {
         private int id;
+        private int id_role;
         private string name;
         private string description;
         private int quantity;
         private long price;
         private byte[] image;
-        
+
         public int Id
         {
             get { return id; }
             set { id = value; }
 
+        }
+        public int Id_Role
+        {
+            get { return id_role; }
+            set { id_role = value; }
         }
 
         public string Name
@@ -55,8 +61,9 @@ namespace AddProdukdanSampah
         }
 
         //Constructor
-        public Item (string name, string description, int quantity, long price, byte[] image)
+        public Item (int id_role, string name, string description, int quantity, long price, byte[] image)
         {
+            this.id_role = id_role;
             this.name = name;
             this.description = description;
             this.quantity = quantity;

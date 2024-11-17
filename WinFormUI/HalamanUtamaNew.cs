@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AddProdukdanProduk;
+using DotNetEnv;
+using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,12 +19,18 @@ namespace AddProdukdanSampah
     {
         private List<Trashes> allTrashes; // Store all trash items
         private List<Products> allProducts; // Store all product items
-
-        public HalamanUtamaNew()
+        private string userRole;
+        private string currentUsername;
+        private int currentAccountId;
+        public HalamanUtamaNew(string username)
         {
             InitializeComponent();
             LoadData(); // Load both Trashes and Products
             tbSearch.TextChanged += tbSearch_TextChanged; // Add event handler for search text box
+            userRole = GetUserRole(username);
+            currentUsername = username;
+            lblUsername.Text = currentUsername;
+            currentAccountId = GetAccountId(username);
         }
 
         private void LoadData()
@@ -63,7 +72,7 @@ namespace AddProdukdanSampah
                 }
                 pic.SizeMode = PictureBoxSizeMode.StretchImage;
                 pic.Size = new Size(180, 180);
-                pic.Click += (s, e) => { NavigateToOrderPage(trash); };
+                pic.Click += (s, e) => { NavigateToOrderPage(trash, currentUsername); };
                 pic.Location = new Point((panel.Width - pic.Width) / 2, 10);
 
                 panel.Controls.Add(pic);
@@ -173,17 +182,129 @@ namespace AddProdukdanSampah
         private void pbMaps_Click(object sender, EventArgs e)
         {
             this.Close();
-            var maps = new Maps();
+            var maps = new Maps(currentUsername);
             maps.Show();
         }
 
-        private void NavigateToOrderPage(Item item)
+        private void NavigateToOrderPage(Item item, string username)
         {
             this.Close();
-            HalamanOrder orderPage = new HalamanOrder(item);
+            HalamanOrder orderPage = new HalamanOrder(item, username);
             orderPage.Show();
         }
 
-        
+        private string GetUserRole(string username)
+        {
+            string role = "";
+            string connString = Env.GetString("DB_URI");
+
+            using (var conn = new NpgsqlConnection(connString))
+            {
+                conn.Open();
+
+                using (var cmd = new NpgsqlCommand("SELECT role FROM pub_plastika.\"Account_Agent\" WHERE username = @u", conn))
+                {
+                    cmd.Parameters.AddWithValue("u", username);
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        return result.ToString();
+                    }
+                }
+
+                using (var cmd = new NpgsqlCommand("SELECT role FROM pub_plastika.\"Account_Vendor\" WHERE username = @u", conn))
+                {
+                    cmd.Parameters.AddWithValue("u", username);
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        return result.ToString();
+                    }
+                }
+            }
+
+            return role;
+        }
+
+        private void btnAddBarang_Click(object sender, EventArgs e)
+        {
+            
+            if (userRole == "Vendor Produk")
+            {
+                TambahProduk tambahProduk = new TambahProduk(currentUsername, currentAccountId);
+                this.Close();
+                tambahProduk.Show();
+            }
+            else if (userRole == "Agen Sampah")
+            {
+                TambahSampah tambahSampah = new TambahSampah(currentUsername, currentAccountId);
+                this.Close();
+                tambahSampah.Show();
+            }
+        }
+
+        private void pbProfile_Click(object sender, EventArgs e)
+        {
+            if (IsProfileIncomplete(currentUsername))
+            {
+                Profil profilForm = new Profil(currentUsername);
+                profilForm.ShowDialog();
+            }
+            else
+            {
+                ProfilTampilan profilTampilanForm = new ProfilTampilan(currentUsername);
+                profilTampilanForm.ShowDialog();
+            }
+        }
+
+
+        private bool IsProfileIncomplete(string username)
+        {
+            Env.TraversePath().Load();
+            string connString = Env.GetString("DB_URI");
+            using (var conn = new NpgsqlConnection(connString))
+            {
+                conn.Open();
+
+                string query = @"
+            SELECT COUNT(1) 
+            FROM (
+                SELECT name, phone, address FROM pub_plastika.""Account_Vendor"" WHERE username = @u
+                UNION ALL
+                SELECT name, phone, address FROM pub_plastika.""Account_Agent"" WHERE username = @u
+            ) AS combined
+            WHERE name IS NULL OR phone IS NULL OR address IS NULL";
+
+                using (var cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("u", username);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+            }
+
+        }
+        private int GetAccountId(string username)
+        {
+            string connString = Env.GetString("DB_URI");
+            using (var conn = new NpgsqlConnection(connString))
+            {
+                conn.Open();
+                string query = @"
+            SELECT id_account FROM pub_plastika.""Account_Vendor"" WHERE username = @u
+            UNION ALL
+            SELECT id_account FROM pub_plastika.""Account_Agent"" WHERE username = @u";
+
+                using (var cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("u", username);
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
+
+
+
+
     }
 }

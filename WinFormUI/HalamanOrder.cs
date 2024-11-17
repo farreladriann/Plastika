@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Http;
 using AddProdukdanSampah;
 
 namespace WinFormUI
@@ -67,9 +68,90 @@ namespace WinFormUI
             orderPage.Show();
         }
 
-        private void btnPesan_Click(object sender, EventArgs e)
+        private async void btnPesan_Click(object sender, EventArgs e)
         {
+            // Disable the button to prevent multiple clicks
+            btnPesan.Enabled = false;
 
+            // Initialize HttpClient
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    // Set the base address of the API
+                    client.BaseAddress = new Uri("http://localhost:3000"); // Ganti dengan URL server backend Anda
+
+                    // Tambahkan header Authorization
+                    client.DefaultRequestHeaders.Authorization =
+                        new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(
+                            Encoding.ASCII.GetBytes($"{Environment.GetEnvironmentVariable("MIDTRANS_SERVER_KEY")}:")));
+
+                    // Construct the request payload
+                    var payload = new
+                    {
+                        order_id = $"order-{Guid.NewGuid()}", // Generate a unique order ID
+                        gross_amount = (int)(numKuantitas.Value * _item.Price), // Calculate total price
+                        customer_details = new
+                        {
+                            first_name = "John",
+                            last_name = "Doe",
+                            email = "john.doe@example.com",
+                            phone = "08123456789"
+                        }
+                    };
+
+                    // Convert payload to JSON
+                    string jsonPayload = System.Text.Json.JsonSerializer.Serialize(payload);
+                    var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+                    // Send POST request to backend
+                    HttpResponseMessage response = await client.PostAsync("/api/payment/create-transaction", content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // Parse the response JSON
+                        var responseData = await response.Content.ReadAsStringAsync();
+                        var result = System.Text.Json.JsonSerializer.Deserialize<MidtransResponse>(responseData);
+
+                        // Open the redirect URL in the default browser
+                        if (result != null && result.redirect_url != null)
+                        {
+                            //System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                            //{
+                            //    FileName = result.redirect_url,
+                            //    UseShellExecute = true
+                            //});
+                            var paymentPage = new HalamanPayment(result.redirect_url.ToString());
+                            paymentPage.Show();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to retrieve payment URL. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Error: {response.StatusCode}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // Re-enable the button
+                    btnPesan.Enabled = true;
+                }
+            }
         }
+    }
+
+    public class MidtransResponse
+    {
+        public string status { get; set; }
+        public string token { get; set; }
+        public string redirect_url { get; set; }
     }
 }

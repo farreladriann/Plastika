@@ -130,7 +130,7 @@ namespace AddProdukdanSampah
                 pic.SizeMode = PictureBoxSizeMode.StretchImage;
                 pic.Size = new Size(180, 180);
                 pic.Location = new Point((panel.Width - pic.Width) / 2, 10);
-
+                pic.Click += (s, e) => { NavigateToOrderPage(product); };
                 panel.Controls.Add(pic);
 
                 // Name label
@@ -189,6 +189,7 @@ namespace AddProdukdanSampah
         private void NavigateToOrderPage(Item item, string username)
         {
             this.Close();
+            
             HalamanOrder orderPage = new HalamanOrder(item, username);
             orderPage.Show();
         }
@@ -302,9 +303,6 @@ namespace AddProdukdanSampah
                 }
             }
         }
-
-
-
-
+      
     }
 }

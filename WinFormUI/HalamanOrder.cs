@@ -16,8 +16,9 @@ namespace WinFormUI
     public partial class HalamanOrder : Form
     {
         private Item _item;
+        private string currentUsername;
 
-        public HalamanOrder(Item item)
+        public HalamanOrder(Item item, string username)
         {
             InitializeComponent();
             _item = item;
@@ -30,6 +31,7 @@ namespace WinFormUI
 
             // Initialize total price based on default quantity (1)
             UpdateTotalPrice();
+            currentUsername = username;
         }
 
         private void LoadItemData()
@@ -64,7 +66,7 @@ namespace WinFormUI
         private void btnKembali_Click(object sender, EventArgs e)
         {
             this.Close();
-            HalamanUtamaNew orderPage = new HalamanUtamaNew();
+            HalamanUtamaNew orderPage = new HalamanUtamaNew(currentUsername);
             orderPage.Show();
         }
 

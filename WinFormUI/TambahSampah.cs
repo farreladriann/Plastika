@@ -17,14 +17,18 @@ namespace AddProdukdanSampah
     public partial class TambahSampah : Form
     {
         private HalamanUtamaNew mainForm;
-        public TambahSampah(HalamanUtamaNew halamanutama)
+        private string currentUsername;
+        private int currentAccountId;
+        
+
+        public TambahSampah(string username, int accountId)
         {
             InitializeComponent();
-            mainForm = halamanutama;
-
-
+            currentUsername = username;
+            currentAccountId = accountId; // Simpan id_account
+            
         }
-        
+
         //private NpgsqlConnection conn;
         //string connstring = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
         //public static NpgsqlCommand cmd;
@@ -35,7 +39,23 @@ namespace AddProdukdanSampah
 
         //}
 
+        //private int GetRoleId(int accountId)
+        //{
+        //    string connString = Env.GetString("DB_URI");
+        //    using (var conn = new NpgsqlConnection(connString))
+        //    {
+        //        conn.Open();
+        //        string query = @"
+        //SELECT id_role FROM pub_plastika.""Account_Vendor""
+        //WHERE id_account = @accountId";
 
+        //        using (var cmd = new NpgsqlCommand(query, conn))
+        //        {
+        //            cmd.Parameters.AddWithValue("@accountId", accountId);
+        //            return Convert.ToInt32(cmd.ExecuteScalar());
+        //        }
+        //    }
+        //}
 
         private void btnUploadFotoSampah_Click(object sender, EventArgs e)
         {
@@ -54,14 +74,12 @@ namespace AddProdukdanSampah
         {
             try
             {
-                // Menmabhakan trashes instans
                 string name = tbNamaSampah.Text;
                 string description = tbDeskripsiSampah.Text;
                 int quantity = int.Parse(tbKuantitasSampah.Text);
                 long price = long.Parse(tbHargaSampah.Text);
                 byte[] imageBytes = null;
 
-                // Convert image dari PictureBox menjadi byte array
                 if (pbFotoSampah.Image != null)
                 {
                     using (MemoryStream ms = new MemoryStream())
@@ -71,93 +89,23 @@ namespace AddProdukdanSampah
                     }
                 }
 
-                // Membuat object dari trashes
-                Trashes newTrash = new Trashes(name, description, quantity, price, imageBytes);
+                Trashes newTrash = new Trashes(currentAccountId, name, description, quantity, price, imageBytes);
 
-                // open koneksi database
-                //    conn.Open();
-                //    sql = @"
-                //            begin;
-                //                insert into pub_plastika.""Trashes""
-                //                (
-                //                    trash_name, 
-                //                    description, 
-                //                    quantity, 
-                //                    price, 
-                //                    images_trashes
-                //                )
-                //                values
-                //                (
-                //                    _trash_name,
-                //                    _description,
-                //                    _quantity,
-                //                    _price,
-                //                    _trash_image
-                //                );
-                //                if found then
-                //                    return 1;
-                //                else
-                //                    return 0;
-                //                end if;
-                //            end;
-                //            ";
-                //    cmd = new NpgsqlCommand(sql, conn);
+                Trashes.InsertTrash(newTrash, currentAccountId);
 
-                //    // Mengugnakan properti dari trashes untuk mengisi parameter
-                //    cmd.Parameters.AddWithValue("_trash_name", newItem.Trash_Name);
-                //    cmd.Parameters.AddWithValue("_description", newItem.Description);
-                //    cmd.Parameters.AddWithValue("_quantity", newItem.Quantity);
-                //    cmd.Parameters.AddWithValue("_price", newItem.Price);
-
-                //    // mengatur parameter image jika null maka akan diisi dengan DBNull.Value agar tidak error
-                //    var imageParameter = new NpgsqlParameter("_trash_image", NpgsqlTypes.NpgsqlDbType.Bytea);
-                //    if (newItem.Trash_Image != null)
-                //    {
-                //        imageParameter.Value = newItem.Trash_Image;
-                //    }
-                //    else
-                //    {
-                //        imageParameter.Value = DBNull.Value;
-                //    }
-                //    cmd.Parameters.Add(imageParameter);
-
-                //    // Execute the command and check the result
-                //    if ((int)cmd.ExecuteScalar() == 1)
-                //    {
-                //        MessageBox.Show("Data Sampah Berhasil Ditambahkan");
-                //    }
-                //    conn.Close();
-                //}
-                //catch (Exception ex)
-                //{
-                //    MessageBox.Show("Error: " + ex.Message, "Insert FAIL!!!");
-                //}
-                //finally
-                //{
-                //    // Ensure the connection is closed even if an error occurs
-                //    if (conn.State == ConnectionState.Open)
-                //    {
-                //        conn.Close();
-                //    }
-                //}
-                Trashes.InsertTrash(newTrash);
                 MessageBox.Show("Data berhasil ditambahkan!");
-                // Show success message
-
             }
             catch (Exception ex)
             {
-                // Show error message
                 MessageBox.Show("Error: " + ex.Message, "Insert FAIL!!!");
             }
 
-            
         }
 
         private void btnKembali_Click(object sender, EventArgs e)
         {
             this.Hide(); // Kembali ke halaman utama
-            HalamanUtamaNew halamanUtama = new HalamanUtamaNew();
+            HalamanUtamaNew halamanUtama = new HalamanUtamaNew(currentUsername);
             halamanUtama.Show();
         }
 
@@ -172,7 +120,7 @@ namespace AddProdukdanSampah
 
 
 
-        //    private void btnKembali_Click(object sender, EventArgs e)
+        //private void btnKembali_Click(object sender, EventArgs e)
         //{
         //    // Get the trash name and image from the input fields
         //    string trashName = tbNamaSampah.Text;

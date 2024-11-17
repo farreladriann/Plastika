@@ -15,10 +15,10 @@ namespace AddProdukdanSampah
        
 
         //Constructor
-        public Products(string name, string description, int quantity, long price, byte[] iamge)
-                : base(name, description, quantity, price, iamge) { }
+        public Products(int id_role, string name, string description, int quantity, long price, byte[] image)
+                : base(id_role, name, description, quantity, price, image) { }
 
-        public static void InsertProduct(Products product)
+        public static void InsertProduct(Products product, int accountId)
         {
             Env.Load();
 
@@ -30,8 +30,8 @@ namespace AddProdukdanSampah
                 try
                 {
                     conn.Open();
-                    string sql = @"INSERT INTO pub_plastika.""Products"" (products_name, description, quantity, price, images_product)
-                           VALUES (@name, @description, @quantity, @price, @image)";
+                    string sql = @"INSERT INTO pub_plastika.""Products"" (products_name, description, quantity, price, images_product, id_account)
+                           VALUES (@name, @description, @quantity, @price, @image, @accountId)";
                     using (var cmd = new NpgsqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@name", product.Name);
@@ -44,10 +44,14 @@ namespace AddProdukdanSampah
                         {
                             imageParameter.Value = product.Image;
                         }
-                        else {
+                        else
+                        {
                             imageParameter.Value = DBNull.Value;
                         }
+
                         cmd.Parameters.Add(imageParameter);
+
+                        cmd.Parameters.AddWithValue("@accountId", accountId);
 
                         int result = cmd.ExecuteNonQuery();
                         MessageBox.Show(result > 0 ? "Data Produk Berhasil Ditambahkan" : "Data Produk Gagal Ditambahkan");
@@ -62,6 +66,7 @@ namespace AddProdukdanSampah
 
 
 
+
         public static List<Products> GetProducts()
         {
             Env.TraversePath().Load();
@@ -69,23 +74,23 @@ namespace AddProdukdanSampah
             string connstring = Env.GetString("DB_URI");
             Console.WriteLine(string.IsNullOrEmpty(connstring) ? "Koneksi string tidak ditemukan." : connstring);
 
-
             List<Products> products = new List<Products>();
             using (var conn = new NpgsqlConnection(connstring))
             {
                 conn.Open();
-                using (var cmd = new NpgsqlCommand(@"SELECT id_product, products_name, description, quantity, price, images_product FROM pub_plastika.""Products""", conn))
+                using (var cmd = new NpgsqlCommand(@"SELECT id_product, id_account, products_name, description, quantity, price, images_product FROM pub_plastika.""Products""", conn))
                 {
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             var product = new Products(
+                                (int)reader["id_account"], // Pastikan id_role diambil dari query
                                 reader["products_name"].ToString(),
                                 reader["description"].ToString(),
                                 (int)reader["quantity"],
                                 (long)reader["price"],
-                                reader["images_product"] as byte[] // Explicitcast to byte[]
+                                reader["images_product"] as byte[] // Explicit cast to byte[]
                             )
                             {
                                 Id = (int)reader["id_product"] // Assuming you have an Id for reference
@@ -96,10 +101,10 @@ namespace AddProdukdanSampah
                 }
             }
             return products;
-
         }
 
+
     }
-   
-    
+
+
 }

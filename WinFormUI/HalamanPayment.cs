@@ -43,7 +43,7 @@ namespace WinFormUI
             try
             {
                 // Check if navigation is successful and the URL indicates success
-                if (e.IsSuccess && webView21.Source?.ToString().Contains("example.com") == true)
+                if (e.IsSuccess && webView21.Source?.ToString().Contains("sites.google.com/mail.ugm.ac.id/plastikasuccesspayment/home") == true)
                 {
                     // Automatically handle payment success when redirected to "example.com"
                     HandlePaymentSuccess();

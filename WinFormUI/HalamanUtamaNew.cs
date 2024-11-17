@@ -63,7 +63,7 @@ namespace AddProdukdanSampah
                 }
                 pic.SizeMode = PictureBoxSizeMode.StretchImage;
                 pic.Size = new Size(180, 180);
-                //pic.Click += (s, e) => { NavigateToOrderPage(trash.Id); };
+                pic.Click += (s, e) => { NavigateToOrderPage(trash); };
                 pic.Location = new Point((panel.Width - pic.Width) / 2, 10);
 
                 panel.Controls.Add(pic);
@@ -177,16 +177,13 @@ namespace AddProdukdanSampah
             maps.Show();
         }
 
-        private void NavigateToOrderPage(int trashId)
+        private void NavigateToOrderPage(Item item)
         {
-            // Implementasi navigasi ke halaman pemesanan
-            //var orderForm = new OrderForm(trashId);
-            //orderForm.Show();
+            this.Close();
+            HalamanOrder orderPage = new HalamanOrder(item);
+            orderPage.Show();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
     }
 }

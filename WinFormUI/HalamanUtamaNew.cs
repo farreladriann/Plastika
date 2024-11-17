@@ -180,10 +180,11 @@ namespace AddProdukdanSampah
         private void NavigateToOrderPage(Item item)
         {
             this.Close();
-            HalamanOrder orderPage = new HalamanOrder(item);
+            var orderPage = new HalamanOrder(item);
             orderPage.Show();
         }
 
-        
+
+
     }
 }

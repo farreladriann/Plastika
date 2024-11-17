@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,8 +36,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetEnv, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\DotNetEnv.3.1.0\lib\netstandard1.3\DotNetEnv.dll</HintPath>
+    <Reference Include="DotNetEnv, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetEnv.3.1.1\lib\netstandard1.3\DotNetEnv.dll</HintPath>
     </Reference>
     <Reference Include="Google.Apis, Version=1.68.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>packages\Google.Apis.1.68.0\lib\net462\Google.Apis.dll</HintPath>

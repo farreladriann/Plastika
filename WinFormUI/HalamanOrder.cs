@@ -113,17 +113,12 @@ namespace WinFormUI
                         var responseData = await response.Content.ReadAsStringAsync();
                         var result = System.Text.Json.JsonSerializer.Deserialize<MidtransResponse>(responseData);
 
-                        // Open the redirect URL in the default browser
+                        // Open the redirect URL in the HalamanPayment form
                         if (result != null && result.redirect_url != null)
                         {
-                            //System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
-                            //{
-                            //    FileName = result.redirect_url,
-                            //    UseShellExecute = true
-                            //});
-                            var paymentPage = new HalamanPayment(result.redirect_url.ToString());
+                            // Pass _item and the selected quantity to the HalamanPayment form
+                            var paymentPage = new HalamanPayment(result.redirect_url, _item, (int)numKuantitas.Value);
                             paymentPage.Show();
-
                         }
                         else
                         {

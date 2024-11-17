@@ -7,12 +7,12 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DotNetEnv;
 namespace AddProdukdanSampah
 {
     internal class Products : Item
     {
-        private static string connstring = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
+       
 
         //Constructor
         public Products(string name, string description, int quantity, long price, byte[] iamge)
@@ -20,6 +20,11 @@ namespace AddProdukdanSampah
 
         public static void InsertProduct(Products product)
         {
+            Env.Load();
+
+            string connstring = Env.GetString("DB_URI");
+            Console.WriteLine(string.IsNullOrEmpty(connstring) ? "Koneksi string tidak ditemukan." : connstring);
+
             using (var conn = new NpgsqlConnection(connstring))
             {
                 try
@@ -59,6 +64,12 @@ namespace AddProdukdanSampah
 
         public static List<Products> GetProducts()
         {
+            Env.TraversePath().Load();
+
+            string connstring = Env.GetString("DB_URI");
+            Console.WriteLine(string.IsNullOrEmpty(connstring) ? "Koneksi string tidak ditemukan." : connstring);
+
+
             List<Products> products = new List<Products>();
             using (var conn = new NpgsqlConnection(connstring))
             {

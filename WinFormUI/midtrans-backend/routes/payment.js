@@ -11,13 +11,13 @@ const snap = new midtransClient.Snap({
     clientKey: process.env.MIDTRANS_CLIENT_KEY
 });
 
-const parameter = {
-    transaction_details: { order_id, gross_amount },
-    customer_details,
-    callbacks: {
-        finish: "http://localhost:3000/payment-finished" // Replace with your actual callback URL
-    },
-};
+//const parameter = {
+//    transaction_details: { order_id, gross_amount },
+//    customer_details,
+//    callbacks: {
+//        finish: "http://localhost:3000/payment-finished" // Replace with your actual callback URL
+//    },
+//};
 
 
 // Create transaction endpoint

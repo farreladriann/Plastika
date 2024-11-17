@@ -70,27 +70,25 @@ namespace WinFormUI
 
         private async void btnPesan_Click(object sender, EventArgs e)
         {
-            // Disable the button to prevent multiple clicks
             btnPesan.Enabled = false;
 
-            // Initialize HttpClient
             using (HttpClient client = new HttpClient())
             {
                 try
                 {
-                    // Set the base address of the API
-                    client.BaseAddress = new Uri("http://localhost:3000"); // Ganti dengan URL server backend Anda
+                    client.BaseAddress = new Uri("http://localhost:3000");
 
-                    // Tambahkan header Authorization
+                    // Add logging to see what's being sent
+                    Console.WriteLine($"Server Key: {Environment.GetEnvironmentVariable("MIDTRANS_SERVER_KEY")}");
+
                     client.DefaultRequestHeaders.Authorization =
                         new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(
                             Encoding.ASCII.GetBytes($"{Environment.GetEnvironmentVariable("MIDTRANS_SERVER_KEY")}:")));
 
-                    // Construct the request payload
                     var payload = new
                     {
-                        order_id = $"order-{Guid.NewGuid()}", // Generate a unique order ID
-                        gross_amount = (int)(numKuantitas.Value * _item.Price), // Calculate total price
+                        order_id = $"order-{Guid.NewGuid()}",
+                        gross_amount = (int)(numKuantitas.Value * _item.Price),
                         customer_details = new
                         {
                             first_name = "John",
@@ -100,23 +98,27 @@ namespace WinFormUI
                         }
                     };
 
-                    // Convert payload to JSON
                     string jsonPayload = System.Text.Json.JsonSerializer.Serialize(payload);
                     var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
 
-                    // Send POST request to backend
+                    // Log the request details
+                    Console.WriteLine($"Request URL: {client.BaseAddress}/api/payment/create-transaction");
+                    Console.WriteLine($"Payload: {jsonPayload}");
+
                     HttpResponseMessage response = await client.PostAsync("/api/payment/create-transaction", content);
+
+                    // Get the response content regardless of status code
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Response Status: {response.StatusCode}");
+                    Console.WriteLine($"Response Content: {responseContent}");
 
                     if (response.IsSuccessStatusCode)
                     {
-                        // Parse the response JSON
-                        var responseData = await response.Content.ReadAsStringAsync();
-                        var result = System.Text.Json.JsonSerializer.Deserialize<MidtransResponse>(responseData);
+                        var result = System.Text.Json.JsonSerializer.Deserialize<MidtransResponse>(responseContent);
 
-                        // Open the redirect URL in the HalamanPayment form
                         if (result != null && result.redirect_url != null)
                         {
-                            // Pass _item and the selected quantity to the HalamanPayment form
+                            this.Close();
                             var paymentPage = new HalamanPayment(result.redirect_url, _item, (int)numKuantitas.Value);
                             paymentPage.Show();
                         }
@@ -127,19 +129,63 @@ namespace WinFormUI
                     }
                     else
                     {
-                        MessageBox.Show($"Error: {response.StatusCode}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Error: {response.StatusCode}\nDetails: {responseContent}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"An error occurred:\n{ex.Message}\n\nStack Trace:\n{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
-                    // Re-enable the button
                     btnPesan.Enabled = true;
                 }
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numKuantitas_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPrice_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblStock_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTotalPrice_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 

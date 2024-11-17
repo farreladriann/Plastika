@@ -1,9 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const paymentRoutes = require('./routes/payment');
-const { Pool } = require('pg');
+const { Client } = require('pg');
 require('dotenv').config();
-
+const paymentRoutes = require('./routes/payment');
 const app = express();
 const PORT = 3000;
 
@@ -11,26 +10,44 @@ const PORT = 3000;
 app.use(bodyParser.json());
 app.use('/api/payment', paymentRoutes);
 
-// Database connection
-const pool = new Pool({
-    connectionString: process.env.DB_URI, // Use the DB_URI from .env file
-});
+// Parse DB_URI into a connection object
+function parseDbUri(uri) {
+    const params = uri.split(';').reduce((acc, param) => {
+        const [key, value] = param.split('=');
+        if (key && value) {
+            acc[key.toLowerCase()] = value;
+        }
+        return acc;
+    }, {});
 
-// Test database connection
-pool.connect((err, client, release) => {
+    return {
+        host: params['host'],
+        user: params['username'],
+        password: params['password'],
+        database: params['database'],
+        port: params['port'] || 5432, // Default PostgreSQL port
+        ssl: {
+            rejectUnauthorized: false, // Allow self-signed or non-verified certificates
+        },
+    };
+}
+
+// Parse the DB_URI
+const dbConfig = parseDbUri(process.env.DB_URI);
+
+// Log the parsed configuration for debugging
+console.log('Parsed DB Config:', dbConfig);
+
+// Database connection
+const client = new Client(dbConfig);
+
+// Connect to the database
+client.connect(err => {
     if (err) {
         console.error('Failed to connect to the database:', err.stack);
     } else {
         console.log('Connected to the database successfully!');
-        release();
     }
-});
-
-
-
-// Start Server
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
 });
 
 // Handle success callback and stock update
@@ -38,7 +55,7 @@ app.get('/api/payment/success', async (req, res) => {
     const { order_id } = req.query;
 
     try {
-        const result = await pool.query(`
+        const result = await client.query(`
             SELECT id_product, quantity, is_product 
             FROM orders 
             WHERE order_id = $1`, [order_id]);
@@ -52,7 +69,7 @@ app.get('/api/payment/success', async (req, res) => {
         const table = is_product ? '"Products"' : '"Trashes"';
         const column = is_product ? 'id_product' : 'id_trash';
 
-        await pool.query(`
+        await client.query(`
             UPDATE pub_plastika.${table}
             SET quantity = quantity - $1
             WHERE ${column} = $2`, [quantity, id_product]);
@@ -64,3 +81,7 @@ app.get('/api/payment/success', async (req, res) => {
     }
 });
 
+// Start Server
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});

@@ -156,6 +156,15 @@ namespace AddProdukdanSampah
 </html>";
         }
 
+
+      
+
+        private void btnKembali_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Kembali ke halaman utama
+            HalamanUtamaNew halamanUtama = new HalamanUtamaNew();
+            halamanUtama.Show();
+        }
     }
 
 

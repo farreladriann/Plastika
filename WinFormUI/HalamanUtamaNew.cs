@@ -63,6 +63,7 @@ namespace AddProdukdanSampah
                 }
                 pic.SizeMode = PictureBoxSizeMode.StretchImage;
                 pic.Size = new Size(180, 180);
+                pic.Click += (s, e) => { NavigateToOrderPage(trash); };
                 pic.Location = new Point((panel.Width - pic.Width) / 2, 10);
 
                 panel.Controls.Add(pic);
@@ -175,5 +176,14 @@ namespace AddProdukdanSampah
             var maps = new Maps();
             maps.Show();
         }
+
+        private void NavigateToOrderPage(Item item)
+        {
+            this.Close();
+            HalamanOrder orderPage = new HalamanOrder(item);
+            orderPage.Show();
+        }
+
+        
     }
 }

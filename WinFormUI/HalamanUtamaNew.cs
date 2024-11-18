@@ -72,7 +72,7 @@ namespace AddProdukdanSampah
                 }
                 pic.SizeMode = PictureBoxSizeMode.StretchImage;
                 pic.Size = new Size(180, 180);
-                pic.Click += (s, e) => { NavigateToOrderPage(trash, currentUsername); };
+                pic.Click += (s, e) => { NavigateToOrderPage(trash, currentUsername, currentAccountId); };
                 pic.Location = new Point((panel.Width - pic.Width) / 2, 10);
 
                 panel.Controls.Add(pic);
@@ -130,7 +130,7 @@ namespace AddProdukdanSampah
                 pic.SizeMode = PictureBoxSizeMode.StretchImage;
                 pic.Size = new Size(180, 180);
                 pic.Location = new Point((panel.Width - pic.Width) / 2, 10);
-                pic.Click += (s, e) => { NavigateToOrderPage(product); };
+                pic.Click += (s, e) => { NavigateToOrderPage(product, currentUsername, currentAccountId); };
                 panel.Controls.Add(pic);
 
                 // Name label
@@ -186,11 +186,10 @@ namespace AddProdukdanSampah
             maps.Show();
         }
 
-        private void NavigateToOrderPage(Item item, string username)
+        private void NavigateToOrderPage(Item item, string username, int accountid)
         {
             this.Close();
-            
-            HalamanOrder orderPage = new HalamanOrder(item, username);
+            HalamanOrder orderPage = new HalamanOrder(item, username, accountid);
             orderPage.Show();
         }
 

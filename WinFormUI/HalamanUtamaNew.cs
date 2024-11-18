@@ -25,29 +25,43 @@ namespace AddProdukdanSampah
         public HalamanUtamaNew(string username)
         {
             InitializeComponent();
-            LoadData(); // Load both Trashes and Products
             tbSearch.TextChanged += tbSearch_TextChanged; // Add event handler for search text box
             userRole = GetUserRole(username);
             currentUsername = username;
             lblUsername.Text = currentUsername;
             currentAccountId = GetAccountId(username);
+            LoadData(userRole); // Load both Trashes and Products
         }
 
-        private void LoadData()
+        private void LoadData(string role)
         {
             allTrashes = Trashes.GetTrashes(); // Load trash items
             allProducts = Products.GetProducts(); // Load product items
-            DisplayItems(); // Display both items
+            DisplayItems(role); // Display both items
         }
 
-        private void DisplayItems()
+        //private void DisplayItems()
+        //{
+        //    flpHalamanUtama.Controls.Clear(); // Clear previous items
+
+        //    DisplayTrashes(allTrashes); // Display all trash items
+        //    DisplayProducts(allProducts); // Display all product items
+        //}
+        
+        private void DisplayItems(string role)
         {
-            flpHalamanUtama.Controls.Clear(); // Clear previous items
+            flpHalamanUtama.Controls.Clear();
 
-            DisplayTrashes(allTrashes); // Display all trash items
-            DisplayProducts(allProducts); // Display all product items
+            // Display items based on user role
+            if (role == "Vendor Produk")
+            {
+                DisplayTrashes(allTrashes);
+            }
+            else if (role == "Agen Sampah")
+            {
+                DisplayProducts(allProducts);
+            }
         }
-
         private void DisplayTrashes(List<Trashes> trashes)
         {
             foreach (var trash in trashes)

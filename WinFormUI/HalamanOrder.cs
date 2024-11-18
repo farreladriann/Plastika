@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
 using AddProdukdanSampah;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WinFormUI
 {
@@ -17,8 +18,9 @@ namespace WinFormUI
     {
         private Item _item;
         private string currentUsername;
+        private int currentAccountId;
 
-        public HalamanOrder(Item item, string username)
+        public HalamanOrder(Item item, string username, int accountId)
         {
             InitializeComponent();
             _item = item;
@@ -32,6 +34,7 @@ namespace WinFormUI
             // Initialize total price based on default quantity (1)
             UpdateTotalPrice();
             currentUsername = username;
+            currentAccountId = accountId;
         }
 
         private void LoadItemData()
@@ -121,7 +124,7 @@ namespace WinFormUI
                         if (result != null && result.redirect_url != null)
                         {
                             this.Close();
-                            var paymentPage = new HalamanPayment(result.redirect_url, _item, (int)numKuantitas.Value);
+                            var paymentPage = new HalamanPayment(currentUsername, result.redirect_url, _item, (int)numKuantitas.Value);
                             paymentPage.Show();
                         }
                         else

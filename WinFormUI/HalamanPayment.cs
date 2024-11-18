@@ -1,4 +1,5 @@
 ﻿using AddProdukdanSampah;
+using DotNetEnv;
 using Microsoft.Web.WebView2.Core;
 using Npgsql;
 using System;
@@ -12,13 +13,15 @@ namespace WinFormUI
         private readonly string _paymentUrl;
         private readonly Item _item;
         private readonly int _quantity;
+        private string currentUsername;
 
-        public HalamanPayment(string paymentUrl, Item item, int quantity)
+        public HalamanPayment(string username, string paymentUrl, Item item, int quantity)
         {
             InitializeComponent();
             _paymentUrl = paymentUrl;
             _item = item;
             _quantity = quantity;
+            currentUsername = username;
 
             InitializeWebView();
         }
@@ -57,22 +60,72 @@ namespace WinFormUI
 
         private void HandlePaymentSuccess()
         {
-            // Display a success message (optional, could be skipped for automation)
             MessageBox.Show("Pembayaran berhasil! Sistem akan memperbarui stok dan kembali ke halaman utama.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             try
             {
-                // Update the stock in the database
                 UpdateStockInDatabase();
-
-                // Navigate back to the main page
+                InsertTransaction(); // Tambahkan ini untuk menyisipkan transaksi
                 NavigateToHalamanUtama();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error updating stock: " + ex.Message);
+                MessageBox.Show("Error updating stock or inserting transaction: " + ex.Message);
             }
         }
+
+        private void InsertTransaction()
+        {
+            string query;
+            if (_item is Trashes)
+            {
+                query = @"INSERT INTO pub_plastika.""Transactions_Trashes"" (id_trashes, id_account, quantity, date, price)
+                  VALUES (@id, @accountId, @quantity, @date, @totalPrice)";
+            }
+            else // Assume _item is Products
+            {
+                query = @"INSERT INTO pub_plastika.""Transactions_Products"" (id_product, id_account, quantity, date, price)
+                  VALUES (@id, @accountId, @quantity, @date, @totalPrice)";
+            }
+
+            decimal totalPrice = _item.Price * _quantity; // Menghitung harga total
+
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", _item.Id);
+                    cmd.Parameters.AddWithValue("@accountId", GetAccountId(currentUsername));
+                    cmd.Parameters.AddWithValue("@quantity", _quantity);
+                    cmd.Parameters.AddWithValue("@date", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@totalPrice", totalPrice); // Menggunakan total harga
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        private int GetAccountId(string username)
+        {
+            string connString = Env.GetString("DB_URI");
+            using (var conn = new NpgsqlConnection(connString))
+            {
+                conn.Open();
+                string query = @"
+        SELECT id_account FROM pub_plastika.""Account_Vendor"" WHERE username = @u
+        UNION ALL
+        SELECT id_account FROM pub_plastika.""Account_Agent"" WHERE username = @u";
+
+                using (var cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("u", username);
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
+
 
         private void UpdateStockInDatabase()
         {
@@ -103,7 +156,7 @@ namespace WinFormUI
         {
             // Close the current form and navigate to the main page
             this.Close();
-            var mainPage = new HalamanUtamaNew();
+            var mainPage = new HalamanUtamaNew(currentUsername);
             mainPage.Show();
         }
 
@@ -120,7 +173,7 @@ namespace WinFormUI
             if (confirmClose == DialogResult.Yes)
             {
                 this.Hide();
-                HalamanUtamaNew mainPage = new HalamanUtamaNew();
+                HalamanUtamaNew mainPage = new HalamanUtamaNew(currentUsername);
                 mainPage.Show();
             }
         }

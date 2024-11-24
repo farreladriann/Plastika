@@ -94,6 +94,14 @@ namespace AddProdukdanSampah
             }
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            HalamanAwal halamanAwal = new HalamanAwal();
+            this.Hide();
+            halamanAwal.ShowDialog();
+            this.Close();
+        }
+
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (sender is RadioButton selectedRadioButton)

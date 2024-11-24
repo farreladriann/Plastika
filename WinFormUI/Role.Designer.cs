@@ -3,6 +3,7 @@
     partial class Role
     {
         private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.Button btnBack;
 
         protected override void Dispose(bool disposing)
         {
@@ -18,6 +19,7 @@
             this.mainContainer = new System.Windows.Forms.TableLayoutPanel();
             this.rolePanel = new System.Windows.Forms.Panel();
             this.btnNext = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.roleOptionsPanel = new System.Windows.Forms.TableLayoutPanel();
             this.rbVendor = new System.Windows.Forms.RadioButton();
             this.rbAgenSampah = new System.Windows.Forms.RadioButton();
@@ -50,6 +52,7 @@
             // 
             this.rolePanel.BackColor = System.Drawing.Color.White;
             this.rolePanel.Controls.Add(this.btnNext);
+            this.rolePanel.Controls.Add(this.btnBack);
             this.rolePanel.Controls.Add(this.roleOptionsPanel);
             this.rolePanel.Controls.Add(this.selectLabel);
             this.rolePanel.Controls.Add(this.welcomeLabel);
@@ -77,6 +80,23 @@
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(40, 394);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(130, 45);
+            this.btnBack.TabIndex = 4;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // roleOptionsPanel
             // 

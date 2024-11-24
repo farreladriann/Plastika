@@ -17,10 +17,20 @@ namespace AddProdukdanSampah
         {
             InitializeComponent();
             SetupInitialStyles();
+            
+            // Set fixed size and prevent resizing
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.ClientSize = new Size(800, 600); // Fixed size
+            this.BackColor = Color.White; // White background
         }
 
         private void SetupInitialStyles()
         {
+            // Set white background for all containers
+            this.mainContainer.BackColor = Color.White;
+            this.rolePanel.BackColor = Color.White;
+            
             // Disable button initially until a role is selected
             btnNext.Enabled = false;
             btnNext.BackColor = Color.FromArgb(200, PRIMARY_COLOR);
@@ -39,6 +49,7 @@ namespace AddProdukdanSampah
             SetupTooltips();
         }
 
+        // Rest of the code remains the same...
         private void SetupTooltips()
         {
             var tooltips = new ToolTip
@@ -99,16 +110,13 @@ namespace AddProdukdanSampah
             {
                 bool isSelected = radioButton == selectedRadioButton && selectedRadioButton.Checked;
 
-                // Update visual styles
                 radioButton.ForeColor = isSelected ? Color.White : SECONDARY_COLOR;
                 radioButton.BackColor = isSelected ? PRIMARY_COLOR : Color.White;
                 radioButton.Font = isSelected ? BOLD_FONT : REGULAR_FONT;
 
-                // Update icon and text
                 string baseText = radioButton.Text.Replace("✓  ", "").Replace("◯  ", "");
                 radioButton.Text = isSelected ? $"✓  {baseText}" : $"◯  {baseText}";
 
-                // Update border
                 radioButton.FlatAppearance.BorderColor = PRIMARY_COLOR;
             }
         }

@@ -35,6 +35,11 @@ namespace AddProdukdanSampah
             Role role = new Role();
             role.Show();
         }
+
+        private void featuresPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
     

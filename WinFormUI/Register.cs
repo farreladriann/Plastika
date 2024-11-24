@@ -3,6 +3,7 @@ using System;
 using System.Windows.Forms;
 using Npgsql;
 using DotNetEnv;
+using System.Drawing;
 
 namespace AddProdukdanSampah
 {
@@ -139,5 +140,120 @@ namespace AddProdukdanSampah
                 }
             }
         }
+
+        // Add these methods to enhance the UI experience
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            // Add placeholder text
+            SetPlaceholderText(tbUsername, "Enter your username");
+            SetPlaceholderText(tbPassword, "Enter your password");
+            SetPlaceholderText(tbEmail, "Enter your email address");
+
+            // Add hover effects for buttons
+            AddButtonHoverEffects();
+
+            // Add textbox focus effects
+            AddTextBoxFocusEffects();
+        }
+
+        private void SetPlaceholderText(TextBox textBox, string placeholderText)
+        {
+            textBox.Text = placeholderText;
+            textBox.ForeColor = Color.Gray;
+
+            textBox.GotFocus += (s, e) =>
+            {
+                if (textBox.Text == placeholderText)
+                {
+                    textBox.Text = "";
+                    textBox.ForeColor = Color.Black;
+                }
+            };
+
+            textBox.LostFocus += (s, e) =>
+            {
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    textBox.Text = placeholderText;
+                    textBox.ForeColor = Color.Gray;
+                }
+            };
+        }
+
+        private void AddButtonHoverEffects()
+        {
+            // Next button hover effect
+            btnNext.MouseEnter += (s, e) =>
+            {
+                btnNext.BackColor = Color.FromArgb(21, 128, 61); // Darker green
+            };
+            btnNext.MouseLeave += (s, e) =>
+            {
+                btnNext.BackColor = Color.FromArgb(22, 163, 74); // Original green
+            };
+
+            // Back button hover effect
+            btnKembali.MouseEnter += (s, e) =>
+            {
+                btnKembali.BackColor = Color.FromArgb(243, 244, 246); // Light gray
+            };
+            btnKembali.MouseLeave += (s, e) =>
+            {
+                btnKembali.BackColor = Color.Transparent;
+            };
+        }
+
+        private void AddTextBoxFocusEffects()
+        {
+            foreach (Control control in panel1.Controls)
+            {
+                if (control is TextBox textBox)
+                {
+                    textBox.Enter += (s, e) =>
+                    {
+                        textBox.BackColor = Color.White;
+                        Panel borderPanel = new Panel
+                        {
+                            Height = 2,
+                            BackColor = Color.FromArgb(22, 163, 74),
+                            Location = new Point(textBox.Left, textBox.Bottom + 2),
+                            Width = 0
+                        };
+                        panel1.Controls.Add(borderPanel);
+
+                        // Animate border
+                        Timer timer = new Timer { Interval = 10 };
+                        timer.Tick += (st, et) =>
+                        {
+                            if (borderPanel.Width < textBox.Width)
+                            {
+                                borderPanel.Width += 30;
+                            }
+                            else
+                            {
+                                timer.Stop();
+                            }
+                        };
+                        timer.Start();
+                    };
+
+                    textBox.Leave += (s, e) =>
+                    {
+                        textBox.BackColor = Color.FromArgb(243, 244, 246);
+                        foreach (Control c in panel1.Controls)
+                        {
+                            if (c is Panel p && p.Height == 2)
+                            {
+                                panel1.Controls.Remove(p);
+                                p.Dispose();
+                            }
+                        }
+                    };
+                }
+            }
+        }
     }
 }
+

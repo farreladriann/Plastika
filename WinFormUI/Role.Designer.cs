@@ -28,103 +28,179 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.mainContainer = new System.Windows.Forms.TableLayoutPanel();
+            this.rolePanel = new System.Windows.Forms.Panel();
             this.btnNext = new System.Windows.Forms.Button();
-            this.rbAgenSampah = new System.Windows.Forms.RadioButton();
+            this.roleOptionsPanel = new System.Windows.Forms.TableLayoutPanel();
             this.rbVendor = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.rbAgenSampah = new System.Windows.Forms.RadioButton();
+            this.selectLabel = new System.Windows.Forms.Label();
+            this.welcomeLabel = new System.Windows.Forms.Label();
+            this.mainContainer.SuspendLayout();
+            this.rolePanel.SuspendLayout();
+            this.roleOptionsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // mainContainer
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.btnNext);
-            this.panel1.Controls.Add(this.rbAgenSampah);
-            this.panel1.Controls.Add(this.rbVendor);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(216, 37);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(364, 374);
-            this.panel1.TabIndex = 0;
+            this.mainContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
+            this.mainContainer.ColumnCount = 3;
+            this.mainContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.mainContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.mainContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.mainContainer.Controls.Add(this.rolePanel, 1, 1);
+            this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainContainer.Location = new System.Drawing.Point(0, 0);
+            this.mainContainer.Name = "mainContainer";
+            this.mainContainer.RowCount = 3;
+            this.mainContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.mainContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.mainContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.mainContainer.Size = new System.Drawing.Size(800, 600);
+            this.mainContainer.TabIndex = 0;
+            // 
+            // rolePanel
+            // 
+            this.rolePanel.BackColor = System.Drawing.Color.White;
+            this.rolePanel.Controls.Add(this.btnNext);
+            this.rolePanel.Controls.Add(this.roleOptionsPanel);
+            this.rolePanel.Controls.Add(this.selectLabel);
+            this.rolePanel.Controls.Add(this.welcomeLabel);
+            this.rolePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rolePanel.Location = new System.Drawing.Point(163, 63);
+            this.rolePanel.Name = "rolePanel";
+            this.rolePanel.Padding = new System.Windows.Forms.Padding(30);
+            this.rolePanel.Size = new System.Drawing.Size(474, 474);
+            this.rolePanel.TabIndex = 0;
             // 
             // btnNext
             // 
-            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(227, 293);
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.Location = new System.Drawing.Point(311, 394);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(103, 37);
-            this.btnNext.TabIndex = 1;
+            this.btnNext.Size = new System.Drawing.Size(130, 45);
+            this.btnNext.TabIndex = 3;
             this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // rbAgenSampah
+            // roleOptionsPanel
             // 
-            this.rbAgenSampah.AutoSize = true;
-            this.rbAgenSampah.Location = new System.Drawing.Point(134, 202);
-            this.rbAgenSampah.Name = "rbAgenSampah";
-            this.rbAgenSampah.Size = new System.Drawing.Size(114, 20);
-            this.rbAgenSampah.TabIndex = 3;
-            this.rbAgenSampah.TabStop = true;
-            this.rbAgenSampah.Text = "Agen Sampah";
-            this.rbAgenSampah.UseVisualStyleBackColor = true;
+            this.roleOptionsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.roleOptionsPanel.ColumnCount = 1;
+            this.roleOptionsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.roleOptionsPanel.Controls.Add(this.rbVendor, 0, 0);
+            this.roleOptionsPanel.Controls.Add(this.rbAgenSampah, 0, 1);
+            this.roleOptionsPanel.Location = new System.Drawing.Point(33, 180);
+            this.roleOptionsPanel.Name = "roleOptionsPanel";
+            this.roleOptionsPanel.RowCount = 2;
+            this.roleOptionsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.roleOptionsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.roleOptionsPanel.Size = new System.Drawing.Size(408, 150);
+            this.roleOptionsPanel.TabIndex = 2;
             // 
             // rbVendor
             // 
-            this.rbVendor.AutoSize = true;
-            this.rbVendor.Location = new System.Drawing.Point(134, 163);
+            this.rbVendor.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbVendor.BackColor = System.Drawing.Color.White;
+            this.rbVendor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbVendor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rbVendor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.rbVendor.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.rbVendor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbVendor.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.rbVendor.Location = new System.Drawing.Point(10, 10);
+            this.rbVendor.Margin = new System.Windows.Forms.Padding(10);
             this.rbVendor.Name = "rbVendor";
-            this.rbVendor.Size = new System.Drawing.Size(121, 20);
-            this.rbVendor.TabIndex = 2;
+            this.rbVendor.Size = new System.Drawing.Size(388, 55);
+            this.rbVendor.TabIndex = 0;
             this.rbVendor.TabStop = true;
-            this.rbVendor.Text = "Vendor Produk ";
-            this.rbVendor.UseVisualStyleBackColor = true;
+            this.rbVendor.Text = "Vendor Produk";
+            this.rbVendor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbVendor.UseVisualStyleBackColor = false;
+            this.rbVendor.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
-            // label2
+            // rbAgenSampah
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(130, 98);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 24);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Pilih Role";
+            this.rbAgenSampah.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbAgenSampah.BackColor = System.Drawing.Color.White;
+            this.rbAgenSampah.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbAgenSampah.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rbAgenSampah.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.rbAgenSampah.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.rbAgenSampah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbAgenSampah.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.rbAgenSampah.Location = new System.Drawing.Point(10, 85);
+            this.rbAgenSampah.Margin = new System.Windows.Forms.Padding(10);
+            this.rbAgenSampah.Name = "rbAgenSampah";
+            this.rbAgenSampah.Size = new System.Drawing.Size(388, 55);
+            this.rbAgenSampah.TabIndex = 1;
+            this.rbAgenSampah.TabStop = true;
+            this.rbAgenSampah.Text = "Agen Sampah";
+            this.rbAgenSampah.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbAgenSampah.UseVisualStyleBackColor = false;
+            this.rbAgenSampah.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
-            // label1
+            // selectLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(342, 27);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "SELAMAT DATANG DI PLASTIKA";
+            this.selectLabel.AutoSize = true;
+            this.selectLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F);
+            this.selectLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(86)))), ((int)(((byte)(69)))));
+            this.selectLabel.Location = new System.Drawing.Point(28, 120);
+            this.selectLabel.Name = "selectLabel";
+            this.selectLabel.Size = new System.Drawing.Size(96, 28);
+            this.selectLabel.TabIndex = 1;
+            this.selectLabel.Text = "Pilih Role";
+            // 
+            // welcomeLabel
+            // 
+            this.welcomeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.welcomeLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
+            this.welcomeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.welcomeLabel.Location = new System.Drawing.Point(33, 30);
+            this.welcomeLabel.Name = "welcomeLabel";
+            this.welcomeLabel.Size = new System.Drawing.Size(408, 60);
+            this.welcomeLabel.TabIndex = 0;
+            this.welcomeLabel.Text = "SELAMAT DATANG DI PLASTIKA";
+            this.welcomeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Role
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
+            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.mainContainer);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.MinimumSize = new System.Drawing.Size(600, 500);
             this.Name = "Role";
-            this.Text = "Role";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Plastika - Choose Role";
+            this.mainContainer.ResumeLayout(false);
+            this.rolePanel.ResumeLayout(false);
+            this.rolePanel.PerformLayout();
+            this.roleOptionsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RadioButton rbAgenSampah;
+        private System.Windows.Forms.TableLayoutPanel mainContainer;
+        private System.Windows.Forms.Panel rolePanel;
+        private System.Windows.Forms.Label welcomeLabel;
+        private System.Windows.Forms.Label selectLabel;
+        private System.Windows.Forms.TableLayoutPanel roleOptionsPanel;
         private System.Windows.Forms.RadioButton rbVendor;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton rbAgenSampah;
         private System.Windows.Forms.Button btnNext;
     }
 }

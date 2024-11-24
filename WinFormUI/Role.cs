@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormUI;
 
@@ -13,11 +7,59 @@ namespace AddProdukdanSampah
 {
     public partial class Role : Form
     {
-        
+        private const int ANIMATION_INTERVAL = 50;
+        private readonly Color PRIMARY_COLOR = Color.FromArgb(39, 174, 96);
+        private readonly Color SECONDARY_COLOR = Color.FromArgb(52, 86, 69);
+        private readonly Font REGULAR_FONT = new Font("Segoe UI", 10.8f, FontStyle.Regular);
+        private readonly Font BOLD_FONT = new Font("Segoe UI", 10.8f, FontStyle.Bold);
+
         public Role()
         {
             InitializeComponent();
-            
+            SetupInitialStyles();
+        }
+
+        private void SetupInitialStyles()
+        {
+            // Disable button initially until a role is selected
+            btnNext.Enabled = false;
+            btnNext.BackColor = Color.FromArgb(200, PRIMARY_COLOR);
+
+            // Set up hover effects for the Next button
+            btnNext.MouseEnter += (s, e) => {
+                if (btnNext.Enabled)
+                    btnNext.BackColor = Color.FromArgb(45, 200, 110);
+            };
+            btnNext.MouseLeave += (s, e) => {
+                if (btnNext.Enabled)
+                    btnNext.BackColor = PRIMARY_COLOR;
+            };
+
+            // Set up tooltips for role options
+            SetupTooltips();
+        }
+
+        private void SetupTooltips()
+        {
+            var tooltips = new ToolTip
+            {
+                InitialDelay = 500,
+                ReshowDelay = 100,
+                ShowAlways = true,
+                ToolTipTitle = "Informasi Role"
+            };
+
+            tooltips.SetToolTip(rbVendor,
+                "Sebagai Vendor Produk, Anda dapat:\n" +
+                "• Menjual produk daur ulang\n" +
+                "• Membeli sampah dari agen\n" +
+                "• Mengelola katalog produk");
+
+            tooltips.SetToolTip(rbAgenSampah,
+                "Sebagai Agen Sampah, Anda dapat:\n" +
+                "• Mengumpulkan dan menjual sampah\n" +
+                "• Mendapatkan harga terbaik\n" +
+                "• Berkontribusi pada lingkungan");
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -32,86 +74,79 @@ namespace AddProdukdanSampah
             }
             else
             {
-                MessageBox.Show("Silakan pilih salah satu role.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Silakan pilih salah satu role terlebih dahulu.",
+                    "Peringatan",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
             }
         }
 
-        private void radioButton_CheckedChanged(object sender, System.EventArgs e)
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
-            RadioButton rb = sender as RadioButton;
-            if (rb != null)
+            if (sender is RadioButton selectedRadioButton)
             {
-                // Set warna dan style untuk semua radio buttons
-                foreach (RadioButton radioBtn in new[] { rbVendor, rbAgenSampah })
-                {
-                    if (radioBtn == rb && rb.Checked)
-                    {
-                        // Style untuk radio button yang dipilih
-                        radioBtn.ForeColor = System.Drawing.Color.White;
-                        radioBtn.BackColor = System.Drawing.Color.FromArgb(39, 174, 96);
-                        radioBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(39, 174, 96);
-                        radioBtn.Font = new Font("Segoe UI", 10.2f, FontStyle.Bold);
-
-                        // Tambahkan ikon centang (jika menggunakan font Segoe UI)
-                        radioBtn.Text = $"✓  {rb.Text.Replace("✓  ", "").Replace("◯  ", "")}";
-
-                        // Enable tombol Next
-                        btnNext.Enabled = true;
-                        btnNext.BackColor = System.Drawing.Color.FromArgb(39, 174, 96);
-                        btnNext.Cursor = Cursors.Hand;
-
-                        // Efek visual saat dipilih
-                        RadioButtonSelectedEffect(radioBtn);
-                    }
-                    else
-                    {
-                        // Style untuk radio button yang tidak dipilih
-                        radioBtn.ForeColor = System.Drawing.Color.FromArgb(52, 86, 69);
-                        radioBtn.BackColor = System.Drawing.Color.White;
-                        radioBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(39, 174, 96);
-                        radioBtn.Font = new Font("Segoe UI", 10.2f, FontStyle.Regular);
-
-                        // Tambahkan ikon lingkaran kosong
-                        radioBtn.Text = $"◯  {radioBtn.Text.Replace("✓  ", "").Replace("◯  ", "")}";
-                    }
-                }
+                UpdateRadioButtonStyles(selectedRadioButton);
+                AnimateSelection(selectedRadioButton);
+                UpdateNextButton(true);
             }
         }
 
-        private void RadioButtonSelectedEffect(RadioButton rb)
+        private void UpdateRadioButtonStyles(RadioButton selectedRadioButton)
         {
-            // Animasi sederhana saat dipilih
-            Timer animationTimer = new Timer();
-            int pulseCount = 0;
-            int originalWidth = rb.Width;
-            int originalHeight = rb.Height;
+            foreach (RadioButton radioButton in new[] { rbVendor, rbAgenSampah })
+            {
+                bool isSelected = radioButton == selectedRadioButton && selectedRadioButton.Checked;
 
-            animationTimer.Interval = 50;
+                // Update visual styles
+                radioButton.ForeColor = isSelected ? Color.White : SECONDARY_COLOR;
+                radioButton.BackColor = isSelected ? PRIMARY_COLOR : Color.White;
+                radioButton.Font = isSelected ? BOLD_FONT : REGULAR_FONT;
+
+                // Update icon and text
+                string baseText = radioButton.Text.Replace("✓  ", "").Replace("◯  ", "");
+                radioButton.Text = isSelected ? $"✓  {baseText}" : $"◯  {baseText}";
+
+                // Update border
+                radioButton.FlatAppearance.BorderColor = PRIMARY_COLOR;
+            }
+        }
+
+        private void AnimateSelection(RadioButton selectedRadioButton)
+        {
+            var animationTimer = new Timer
+            {
+                Interval = ANIMATION_INTERVAL
+            };
+
+            int pulseCount = 0;
+            const int PULSE_STEPS = 2;
+
             animationTimer.Tick += (s, e) =>
             {
                 pulseCount++;
                 switch (pulseCount)
                 {
                     case 1:
-                        rb.Padding = new Padding(5); // Efek "shrink"
+                        selectedRadioButton.Padding = new Padding(5);
                         break;
-                    case 2:
-                        rb.Padding = new Padding(0); // Kembali ke ukuran normal
+                    case PULSE_STEPS:
+                        selectedRadioButton.Padding = new Padding(0);
                         animationTimer.Stop();
                         animationTimer.Dispose();
                         break;
                 }
             };
+
             animationTimer.Start();
+        }
 
-            // Tambahan tooltip informasi
-            string tooltipText = rb.Name == "rbVendor" ?
-                "Anda akan dapat menjual produk daur ulang" :
-                "Anda akan dapat mengumpulkan dan menjual sampah";
-
-            ToolTip tooltip = new ToolTip();
-            tooltip.SetToolTip(rb, tooltipText);
-            tooltip.ShowAlways = true;
+        private void UpdateNextButton(bool enable)
+        {
+            btnNext.Enabled = enable;
+            btnNext.BackColor = enable ? PRIMARY_COLOR : Color.FromArgb(200, PRIMARY_COLOR);
+            btnNext.Cursor = enable ? Cursors.Hand : Cursors.Default;
         }
     }
 }

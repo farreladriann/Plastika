@@ -65,5 +65,10 @@ namespace AddProdukdanSampah
                 }
             }
         }
+
+        private void HalamanAwal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

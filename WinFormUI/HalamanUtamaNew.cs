@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormUI;
+using Guna.UI2.WinForms;
+using System.Drawing.Drawing2D;
 
 namespace AddProdukdanSampah
 {
@@ -40,14 +42,6 @@ namespace AddProdukdanSampah
             DisplayItems(role); // Display both items
         }
 
-        //private void DisplayItems()
-        //{
-        //    flpHalamanUtama.Controls.Clear(); // Clear previous items
-
-        //    DisplayTrashes(allTrashes); // Display all trash items
-        //    DisplayProducts(allProducts); // Display all product items
-        //}
-        
         private void DisplayItems(string role)
         {
             flpHalamanUtama.Controls.Clear();
@@ -61,22 +55,30 @@ namespace AddProdukdanSampah
             {
                 DisplayProducts(allProducts);
             }
+            else
+            {
+                // Display all items if role is not specified
+                DisplayTrashes(allTrashes);
+                DisplayProducts(allProducts);
+            }
         }
+
         private void DisplayTrashes(List<Trashes> trashes)
         {
             foreach (var trash in trashes)
             {
                 // Create a panel for each trash item
-                Panel panel = new Panel()
+                Guna2Panel panel = new Guna2Panel()
                 {
-                    BorderStyle = BorderStyle.FixedSingle,
+                    BorderRadius = 10,
                     Size = new Size(200, 250),
                     Margin = new Padding(20),
-                    BackColor = Color.Azure
+                    FillColor = Color.Azure
                 };
 
                 // Setup image
-                PictureBox pic = new PictureBox();
+                Guna2PictureBox pic = new Guna2PictureBox();
+                pic.BorderRadius = 10;
                 if (trash.Image != null)
                 {
                     using (var ms = new MemoryStream(trash.Image))
@@ -92,7 +94,7 @@ namespace AddProdukdanSampah
                 panel.Controls.Add(pic);
 
                 // Name label
-                Label lblName = new Label
+                Guna2HtmlLabel lblName = new Guna2HtmlLabel
                 {
                     Text = trash.Name,
                     Location = new Point(10, 190),
@@ -103,7 +105,7 @@ namespace AddProdukdanSampah
                 panel.Controls.Add(lblName);
 
                 // Price label
-                Label lblPrice = new Label
+                Guna2HtmlLabel lblPrice = new Guna2HtmlLabel
                 {
                     Text = trash.Price.ToString("C"),
                     Location = new Point(10, 210),
@@ -118,22 +120,22 @@ namespace AddProdukdanSampah
             }
         }
 
-        // New method to display products
         private void DisplayProducts(List<Products> products)
         {
             foreach (var product in products)
             {
                 // Create a panel for each product item
-                Panel panel = new Panel()
+                Guna2Panel panel = new Guna2Panel()
                 {
-                    BorderStyle = BorderStyle.FixedSingle,
+                    BorderRadius = 10,
                     Size = new Size(200, 250),
                     Margin = new Padding(20),
-                    BackColor = Color.LightYellow
+                    FillColor = Color.LightYellow
                 };
 
                 // Setup image
-                PictureBox pic = new PictureBox();
+                Guna2PictureBox pic = new Guna2PictureBox();
+                pic.BorderRadius = 10;
                 if (product.Image != null)
                 {
                     using (var ms = new MemoryStream(product.Image))
@@ -148,7 +150,7 @@ namespace AddProdukdanSampah
                 panel.Controls.Add(pic);
 
                 // Name label
-                Label lblName = new Label
+                Guna2HtmlLabel lblName = new Guna2HtmlLabel
                 {
                     Text = product.Name,
                     Location = new Point(10, 190),
@@ -159,7 +161,7 @@ namespace AddProdukdanSampah
                 panel.Controls.Add(lblName);
 
                 // Price label
-                Label lblPrice = new Label
+                Guna2HtmlLabel lblPrice = new Guna2HtmlLabel
                 {
                     Text = product.Price.ToString("C"),
                     Location = new Point(10, 210),
@@ -191,7 +193,6 @@ namespace AddProdukdanSampah
             // Display filtered product items
             DisplayProducts(filteredProducts);
         }
-
 
         private void pbMaps_Click(object sender, EventArgs e)
         {
@@ -242,7 +243,6 @@ namespace AddProdukdanSampah
 
         private void btnAddBarang_Click(object sender, EventArgs e)
         {
-            
             if (userRole == "Vendor Produk")
             {
                 TambahProduk tambahProduk = new TambahProduk(currentUsername, currentAccountId);
@@ -271,7 +271,6 @@ namespace AddProdukdanSampah
             }
         }
 
-
         private bool IsProfileIncomplete(string username)
         {
             Env.TraversePath().Load();
@@ -296,8 +295,8 @@ namespace AddProdukdanSampah
                     return count > 0;
                 }
             }
-
         }
+
         private int GetAccountId(string username)
         {
             string connString = Env.GetString("DB_URI");
@@ -316,6 +315,13 @@ namespace AddProdukdanSampah
                 }
             }
         }
-      
+
+        private void HalamanUtamaNew_Paint(object sender, PaintEventArgs e)
+        {
+            // Create a gradient background
+            LinearGradientBrush linearGradientBrush = new LinearGradientBrush(this.ClientRectangle, Color.LightGreen, Color.DarkGreen, 90F);
+            Graphics g = e.Graphics;
+            g.FillRectangle(linearGradientBrush, this.ClientRectangle);
+        }
     }
 }

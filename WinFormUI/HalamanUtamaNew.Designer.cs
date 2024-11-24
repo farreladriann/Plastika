@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HalamanUtamaNew));
             this.flpHalamanUtama = new System.Windows.Forms.FlowLayoutPanel();
-            this.tbSearch = new System.Windows.Forms.TextBox();
-            this.pbMaps = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAddBarang = new System.Windows.Forms.Button();
-            this.pbProfile = new System.Windows.Forms.PictureBox();
-            this.lblUsername = new System.Windows.Forms.Label();
+            this.tbSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pbMaps = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnAddBarang = new Guna.UI2.WinForms.Guna2Button();
+            this.pbProfile = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.lblUsername = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbMaps)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
             this.SuspendLayout();
@@ -48,23 +48,24 @@
             this.flpHalamanUtama.Margin = new System.Windows.Forms.Padding(7);
             this.flpHalamanUtama.MaximumSize = new System.Drawing.Size(2000, 900);
             this.flpHalamanUtama.Name = "flpHalamanUtama";
-            this.flpHalamanUtama.Size = new System.Drawing.Size(768, 312);
+            this.flpHalamanUtama.Size = new System.Drawing.Size(1200, 600);
             this.flpHalamanUtama.TabIndex = 0;
             // 
             // tbSearch
             // 
+            this.tbSearch.BorderRadius = 10;
+            this.tbSearch.PlaceholderText = "Search";
             this.tbSearch.Location = new System.Drawing.Point(16, 12);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(393, 22);
+            this.tbSearch.Size = new System.Drawing.Size(500, 36);
             this.tbSearch.TabIndex = 0;
-            this.tbSearch.Text = "Search";
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
             // pbMaps
             // 
             this.pbMaps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbMaps.Image = ((System.Drawing.Image)(resources.GetObject("pbMaps.Image")));
-            this.pbMaps.Location = new System.Drawing.Point(563, 12);
+            this.pbMaps.Location = new System.Drawing.Point(1100, 12);
             this.pbMaps.Name = "pbMaps";
             this.pbMaps.Size = new System.Drawing.Size(45, 44);
             this.pbMaps.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -85,21 +86,23 @@
             // 
             this.btnAddBarang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddBarang.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddBarang.BorderRadius = 10;
             this.btnAddBarang.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddBarang.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBarang.Location = new System.Drawing.Point(687, 397);
+            this.btnAddBarang.Location = new System.Drawing.Point(1100, 700);
             this.btnAddBarang.Name = "btnAddBarang";
-            this.btnAddBarang.Size = new System.Drawing.Size(97, 41);
+            this.btnAddBarang.Size = new System.Drawing.Size(120, 50);
             this.btnAddBarang.TabIndex = 0;
             this.btnAddBarang.Text = "Add Barang";
-            this.btnAddBarang.UseVisualStyleBackColor = false;
+            this.btnAddBarang.FillColor = System.Drawing.Color.LightGreen;
+            this.btnAddBarang.HoverState.FillColor = System.Drawing.Color.DarkGreen;
             this.btnAddBarang.Click += new System.EventHandler(this.btnAddBarang_Click);
             // 
             // pbProfile
             // 
             this.pbProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbProfile.Image")));
-            this.pbProfile.Location = new System.Drawing.Point(631, 12);
+            this.pbProfile.Location = new System.Drawing.Point(1150, 12);
             this.pbProfile.Name = "pbProfile";
             this.pbProfile.Size = new System.Drawing.Size(44, 44);
             this.pbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -112,7 +115,7 @@
             this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(694, 28);
+            this.lblUsername.Location = new System.Drawing.Point(1200, 28);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(78, 16);
             this.lblUsername.TabIndex = 5;
@@ -123,7 +126,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGreen;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1300, 800);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.pbMaps);
             this.Controls.Add(this.tbSearch);
@@ -131,8 +134,11 @@
             this.Controls.Add(this.btnAddBarang);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flpHalamanUtama);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "HalamanUtamaNew";
             this.Text = "HalamanUtamaNew";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.HalamanUtamaNew_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pbMaps)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
             this.ResumeLayout(false);
@@ -143,11 +149,11 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flpHalamanUtama;
-        private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.PictureBox pbMaps;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnAddBarang;
-        private System.Windows.Forms.PictureBox pbProfile;
-        private System.Windows.Forms.Label lblUsername;
+        private Guna.UI2.WinForms.Guna2TextBox tbSearch;
+        private Guna.UI2.WinForms.Guna2PictureBox pbMaps;
+        private Guna.UI2.WinForms.Guna2Panel panel1;
+        private Guna.UI2.WinForms.Guna2Button btnAddBarang;
+        private Guna.UI2.WinForms.Guna2PictureBox pbProfile;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblUsername;
     }
 }

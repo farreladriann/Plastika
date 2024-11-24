@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnKembali = new System.Windows.Forms.Button();
-            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.btnNext = new Guna.UI2.WinForms.Guna2Button();
+            this.btnKembali = new Guna.UI2.WinForms.Guna2Button();
+            this.tbEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tbPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.tbUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelLeft = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.panelLeft = new Guna.UI2.WinForms.Guna2Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelLeft.SuspendLayout();
@@ -84,46 +84,41 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(163)))), ((int)(((byte)(74)))));
-            this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNext.FlatAppearance.BorderSize = 0;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.BorderRadius = 8;
+            this.btnNext.Text = "Create Account";
             this.btnNext.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.FillColor = System.Drawing.Color.FromArgb(22, 163, 74);
+            this.btnNext.HoverState.FillColor = System.Drawing.Color.FromArgb(21, 128, 61);
             this.btnNext.Location = new System.Drawing.Point(50, 450);
-            this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(300, 45);
             this.btnNext.TabIndex = 8;
-            this.btnNext.Text = "Create Account";
-            this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnKembali
             // 
             this.btnKembali.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnKembali.BackColor = System.Drawing.Color.Transparent;
-            this.btnKembali.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnKembali.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(163)))), ((int)(((byte)(74)))));
-            this.btnKembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKembali.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnKembali.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(163)))), ((int)(((byte)(74)))));
-            this.btnKembali.Location = new System.Drawing.Point(50, 510);
-            this.btnKembali.Name = "btnKembali";
-            this.btnKembali.Size = new System.Drawing.Size(300, 45);
-            this.btnKembali.TabIndex = 7;
+            this.btnKembali.BorderRadius = 8;
             this.btnKembali.Text = "Back";
-            this.btnKembali.UseVisualStyleBackColor = false;
+            this.btnKembali.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnKembali.FillColor = System.Drawing.Color.Transparent;
+            this.btnKembali.ForeColor = System.Drawing.Color.FromArgb(22, 163, 74);
+            this.btnKembali.HoverState.FillColor = System.Drawing.Color.FromArgb(243, 244, 246);
+            this.btnKembali.Location = new System.Drawing.Point(50, 510);
+            this.btnKembali.Size = new System.Drawing.Size(300, 45);
+            this.btnKembali.BorderColor = System.Drawing.Color.FromArgb(22, 163, 74);
+            this.btnKembali.BorderThickness = 1;
+            this.btnKembali.TabIndex = 7;
             this.btnKembali.Click += new System.EventHandler(this.btnKembali_Click);
             // 
             // tbEmail
             // 
             this.tbEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.tbEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbEmail.BorderRadius = 8;
+            this.tbEmail.PlaceholderText = "Enter your email address";
             this.tbEmail.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.tbEmail.Location = new System.Drawing.Point(50, 380);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(300, 27);
+            this.tbEmail.Size = new System.Drawing.Size(300, 40);
             this.tbEmail.TabIndex = 6;
             // 
             // lblEmail
@@ -141,13 +136,13 @@
             // tbPassword
             // 
             this.tbPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbPassword.BorderRadius = 8;
+            this.tbPassword.PlaceholderText = "Enter your password";
             this.tbPassword.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.tbPassword.PasswordChar = '●';
             this.tbPassword.Location = new System.Drawing.Point(50, 300);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.PasswordChar = '●';
-            this.tbPassword.Size = new System.Drawing.Size(300, 27);
+            this.tbPassword.Size = new System.Drawing.Size(300, 40);
             this.tbPassword.TabIndex = 4;
             // 
             // lblPassword
@@ -165,12 +160,12 @@
             // tbUsername
             // 
             this.tbUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.tbUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbUsername.BorderRadius = 8;
+            this.tbUsername.PlaceholderText = "Enter your username";
             this.tbUsername.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.tbUsername.Location = new System.Drawing.Point(50, 220);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(300, 27);
+            this.tbUsername.Size = new System.Drawing.Size(300, 40);
             this.tbUsername.TabIndex = 2;
             // 
             // lblUsername
@@ -255,19 +250,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panelLeft;
-        private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Button btnKembali;
-        private System.Windows.Forms.TextBox tbEmail;
+        private Guna.UI2.WinForms.Guna2Panel panel1;
+        private Guna.UI2.WinForms.Guna2Panel panelLeft;
+        private Guna.UI2.WinForms.Guna2Button btnNext;
+        private Guna.UI2.WinForms.Guna2Button btnKembali;
+        private Guna.UI2.WinForms.Guna2TextBox tbEmail;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.TextBox tbPassword;
+        private Guna.UI2.WinForms.Guna2TextBox tbPassword;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox tbUsername;
+        private Guna.UI2.WinForms.Guna2TextBox tbUsername;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private Guna.UI2.WinForms.Guna2PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private Guna.UI2.WinForms.Guna2PictureBox pictureBox2;
     }
 }

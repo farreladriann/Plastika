@@ -142,38 +142,16 @@ namespace AddProdukdanSampah
             }
         }
 
-        // Add these methods to enhance the UI experience
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-
-            // Remove the custom placeholder methods if not needed
-            // Guna2TextBox already supports PlaceholderText property
-            // AddButtonHoverEffects();
-            AddTextBoxFocusEffects();
-        }
-
-        // Remove SetPlaceholderText method if placeholders are set via Designer
-        private void SetPlaceholderText(Guna2TextBox textBox, string placeholderText)
-        {
-            // ...code...
-        }
-
-        // Remove or adjust AddTextBoxFocusEffects method
-        // Since Guna2TextBox has built-in focus effects
-        private void AddTextBoxFocusEffects()
-        {
-            // ...code...
-        }
+        // ...existing UI enhancement methods...
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            // ...existing code...
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-
+            // ...existing code...
         }
     }
 }

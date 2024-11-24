@@ -74,7 +74,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(163)))), ((int)(((byte)(74)))));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(22, 163, 74);
             this.label1.Location = new System.Drawing.Point(72, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(263, 46);
@@ -126,7 +126,7 @@
             this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81);
             this.lblEmail.Location = new System.Drawing.Point(50, 355);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(51, 23);
@@ -150,7 +150,7 @@
             this.lblPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81);
             this.lblPassword.Location = new System.Drawing.Point(50, 275);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(82, 23);
@@ -173,7 +173,7 @@
             this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81);
             this.lblUsername.Location = new System.Drawing.Point(50, 195);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(87, 23);
@@ -194,7 +194,7 @@
             // 
             // panelLeft
             // 
-            this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(163)))), ((int)(((byte)(74)))));
+            this.panelLeft.BackColor = System.Drawing.Color.FromArgb(22, 163, 74);
             this.panelLeft.Controls.Add(this.label2);
             this.panelLeft.Controls.Add(this.pictureBox2);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;

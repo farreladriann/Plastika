@@ -18,13 +18,6 @@ namespace AddProdukdanSampah
             selectedRole = role;
         }
 
-        private void btnKembali_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Role role = new Role();
-            role.Show();
-        }
-
         private void btnNext_Click(object sender, EventArgs e)
         {
             string username = tbUsername.Text;

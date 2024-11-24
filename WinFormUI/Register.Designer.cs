@@ -32,7 +32,6 @@
             this.panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnNext = new Guna.UI2.WinForms.Guna2Button();
-            this.btnKembali = new Guna.UI2.WinForms.Guna2Button();
             this.tbEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.tbPassword = new Guna.UI2.WinForms.Guna2TextBox();
@@ -54,7 +53,6 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnNext);
-            this.panel1.Controls.Add(this.btnKembali);
             this.panel1.Controls.Add(this.tbEmail);
             this.panel1.Controls.Add(this.lblEmail);
             this.panel1.Controls.Add(this.tbPassword);
@@ -74,7 +72,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(22, 163, 74);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(163)))), ((int)(((byte)(74)))));
             this.label1.Location = new System.Drawing.Point(72, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(263, 46);
@@ -85,39 +83,30 @@
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnNext.BorderRadius = 8;
-            this.btnNext.Text = "Create Account";
+            this.btnNext.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(163)))), ((int)(((byte)(74)))));
             this.btnNext.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnNext.FillColor = System.Drawing.Color.FromArgb(22, 163, 74);
-            this.btnNext.HoverState.FillColor = System.Drawing.Color.FromArgb(21, 128, 61);
+            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(128)))), ((int)(((byte)(61)))));
             this.btnNext.Location = new System.Drawing.Point(50, 450);
+            this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(300, 45);
             this.btnNext.TabIndex = 8;
+            this.btnNext.Text = "Create Account";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnKembali
-            // 
-            this.btnKembali.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnKembali.BorderRadius = 8;
-            this.btnKembali.Text = "Back";
-            this.btnKembali.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnKembali.FillColor = System.Drawing.Color.Transparent;
-            this.btnKembali.ForeColor = System.Drawing.Color.FromArgb(22, 163, 74);
-            this.btnKembali.HoverState.FillColor = System.Drawing.Color.FromArgb(243, 244, 246);
-            this.btnKembali.Location = new System.Drawing.Point(50, 510);
-            this.btnKembali.Size = new System.Drawing.Size(300, 45);
-            this.btnKembali.BorderColor = System.Drawing.Color.FromArgb(22, 163, 74);
-            this.btnKembali.BorderThickness = 1;
-            this.btnKembali.TabIndex = 7;
-            this.btnKembali.Click += new System.EventHandler(this.btnKembali_Click);
             // 
             // tbEmail
             // 
             this.tbEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbEmail.BorderRadius = 8;
-            this.tbEmail.PlaceholderText = "Enter your email address";
+            this.tbEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbEmail.DefaultText = "";
             this.tbEmail.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.tbEmail.Location = new System.Drawing.Point(50, 380);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.tbEmail.Name = "tbEmail";
+            this.tbEmail.PasswordChar = '\0';
+            this.tbEmail.PlaceholderText = "Enter your email address";
+            this.tbEmail.SelectedText = "";
             this.tbEmail.Size = new System.Drawing.Size(300, 40);
             this.tbEmail.TabIndex = 6;
             // 
@@ -126,7 +115,7 @@
             this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81);
+            this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
             this.lblEmail.Location = new System.Drawing.Point(50, 355);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(51, 23);
@@ -137,11 +126,15 @@
             // 
             this.tbPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbPassword.BorderRadius = 8;
-            this.tbPassword.PlaceholderText = "Enter your password";
+            this.tbPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbPassword.DefaultText = "";
             this.tbPassword.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.tbPassword.PasswordChar = '●';
             this.tbPassword.Location = new System.Drawing.Point(50, 300);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '●';
+            this.tbPassword.PlaceholderText = "Enter your password";
+            this.tbPassword.SelectedText = "";
             this.tbPassword.Size = new System.Drawing.Size(300, 40);
             this.tbPassword.TabIndex = 4;
             // 
@@ -150,7 +143,7 @@
             this.lblPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81);
+            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
             this.lblPassword.Location = new System.Drawing.Point(50, 275);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(82, 23);
@@ -161,10 +154,15 @@
             // 
             this.tbUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbUsername.BorderRadius = 8;
-            this.tbUsername.PlaceholderText = "Enter your username";
+            this.tbUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbUsername.DefaultText = "";
             this.tbUsername.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.tbUsername.Location = new System.Drawing.Point(50, 220);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.tbUsername.Name = "tbUsername";
+            this.tbUsername.PasswordChar = '\0';
+            this.tbUsername.PlaceholderText = "Enter your username";
+            this.tbUsername.SelectedText = "";
             this.tbUsername.Size = new System.Drawing.Size(300, 40);
             this.tbUsername.TabIndex = 2;
             // 
@@ -173,7 +171,7 @@
             this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81);
+            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
             this.lblUsername.Location = new System.Drawing.Point(50, 195);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(87, 23);
@@ -184,6 +182,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.ImageRotate = 0F;
             this.pictureBox1.Location = new System.Drawing.Point(165, 50);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(70, 70);
@@ -194,7 +193,7 @@
             // 
             // panelLeft
             // 
-            this.panelLeft.BackColor = System.Drawing.Color.FromArgb(22, 163, 74);
+            this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(163)))), ((int)(((byte)(74)))));
             this.panelLeft.Controls.Add(this.label2);
             this.panelLeft.Controls.Add(this.pictureBox2);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -218,11 +217,13 @@
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.BorderRadius = 75;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.ImageRotate = 0F;
             this.pictureBox2.Location = new System.Drawing.Point(100, 100);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -253,7 +254,6 @@
         private Guna.UI2.WinForms.Guna2Panel panel1;
         private Guna.UI2.WinForms.Guna2Panel panelLeft;
         private Guna.UI2.WinForms.Guna2Button btnNext;
-        private Guna.UI2.WinForms.Guna2Button btnKembali;
         private Guna.UI2.WinForms.Guna2TextBox tbEmail;
         private System.Windows.Forms.Label lblEmail;
         private Guna.UI2.WinForms.Guna2TextBox tbPassword;

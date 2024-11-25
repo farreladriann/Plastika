@@ -1,5 +1,6 @@
 # Plastika
 Aplikasi jual beli sampah dan produk dari vendor dan agen pengumpul sampah  
+(https://github.com/user-attachments/assets/ce2362f3-5262-4986-85c3-b180c35a8fff)
 
 ## Team
 

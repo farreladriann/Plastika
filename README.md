@@ -22,12 +22,6 @@ Certainly! Below is the modified and neatly formatted GitHub README for your **P
 
 ---
 
-# Plastika
-
-Aplikasi jual beli sampah dan produk dari vendor serta agen pengumpul sampah.
-
-![Plastika Logo](https://github.com/user-attachments/assets/5fef6e5f-9597-413f-a7f7-da710abd4218) <!-- Replace with your actual logo URL -->
-
 ## Introduction
 
 **Plastika** is a Windows Forms application designed to revolutionize the management of plastic waste through a circular economy approach. It facilitates the buying and selling of plastic waste and crafted plastic products, connecting waste agents with vendors to promote sustainability and environmental responsibility.

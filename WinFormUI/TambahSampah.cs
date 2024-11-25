@@ -29,34 +29,6 @@ namespace AddProdukdanSampah
             
         }
 
-        //private NpgsqlConnection conn;
-        //string connstring = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
-        //public static NpgsqlCommand cmd;
-        //private string sql = null;
-        //private void Form1_Load(object sender, EventArgs e)
-        //{
-        //    conn = new NpgsqlConnection(connstring);
-
-        //}
-
-        //private int GetRoleId(int accountId)
-        //{
-        //    string connString = Env.GetString("DB_URI");
-        //    using (var conn = new NpgsqlConnection(connString))
-        //    {
-        //        conn.Open();
-        //        string query = @"
-        //SELECT id_role FROM pub_plastika.""Account_Vendor""
-        //WHERE id_account = @accountId";
-
-        //        using (var cmd = new NpgsqlCommand(query, conn))
-        //        {
-        //            cmd.Parameters.AddWithValue("@accountId", accountId);
-        //            return Convert.ToInt32(cmd.ExecuteScalar());
-        //        }
-        //    }
-        //}
-
         private void btnUploadFotoSampah_Click(object sender, EventArgs e)
         {
             OpenFileDialog opf = new OpenFileDialog();
@@ -113,44 +85,5 @@ namespace AddProdukdanSampah
         {
 
         }
-
-
-
-
-
-
-
-        //private void btnKembali_Click(object sender, EventArgs e)
-        //{
-        //    // Get the trash name and image from the input fields
-        //    string trashName = tbNamaSampah.Text;
-        //    byte[] trashImage = GetImageBytesFromPictureBox(pbFotoSampah);
-
-        //    // Show the main form and update its display
-        //    mainForm.Show();
-        //    mainForm.UpdateTrashDisplay(trashImage, trashName);
-
-        //    mainForm.BringToFront();
-
-        //    // Close the current form (TambahSampah)
-        //    this.Hide();
-        //}
-
-        //// Helper function to convert PictureBox image to byte array
-        //private byte[] GetImageBytesFromPictureBox(PictureBox pictureBox)
-        //{
-        //    using (MemoryStream ms = new MemoryStream())
-        //    {
-        //        pictureBox.Image.Save(ms, pictureBox.Image.RawFormat);
-        //        return ms.ToArray();
-        //    }
-        //}
-
-
-
-
-
-
-
     }
 }

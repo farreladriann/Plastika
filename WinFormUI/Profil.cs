@@ -18,9 +18,9 @@ namespace AddProdukdanSampah
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            string name = tbName.Text;
-            string phone = tbPhone.Text;
-            string address = tbAddress.Text;
+            string name = txtName.Text;
+            string phone = txtPhone.Text;
+            string address = txtAddress.Text;
 
             if (!IsValidPhone(phone))
             {

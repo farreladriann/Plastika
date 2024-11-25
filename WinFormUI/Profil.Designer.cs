@@ -28,146 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profil));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tbAddress = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnConfirm = new System.Windows.Forms.Button();
-            this.tbPhone = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.tbAddress);
-            this.panel1.Controls.Add(this.lblEmail);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnConfirm);
-            this.panel1.Controls.Add(this.tbPhone);
-            this.panel1.Controls.Add(this.lblPassword);
-            this.panel1.Controls.Add(this.tbName);
-            this.panel1.Controls.Add(this.lblUsername);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(227, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(346, 397);
-            this.panel1.TabIndex = 1;
-            // 
-            // tbAddress
-            // 
-            this.tbAddress.Location = new System.Drawing.Point(142, 240);
-            this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(143, 22);
-            this.tbAddress.TabIndex = 12;
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(11, 240);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(66, 20);
-            this.lblEmail.TabIndex = 11;
-            this.lblEmail.Text = "Alamat:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(137, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 29);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Profil";
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.Location = new System.Drawing.Point(221, 323);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(89, 34);
-            this.btnConfirm.TabIndex = 8;
-            this.btnConfirm.Text = "Confirm";
-            this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
-            // 
-            // tbPhone
-            // 
-            this.tbPhone.Location = new System.Drawing.Point(142, 212);
-            this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(143, 22);
-            this.tbPhone.TabIndex = 4;
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(11, 212);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(103, 20);
-            this.lblPassword.TabIndex = 3;
-            this.lblPassword.Text = "No. Telepon:";
-            // 
-            // tbName
-            // 
-            this.tbName.Location = new System.Drawing.Point(142, 184);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(143, 22);
-            this.tbName.TabIndex = 2;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(11, 184);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(131, 20);
-            this.lblUsername.TabIndex = 1;
-            this.lblUsername.Text = "Nama Lengkap: ";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(141, 101);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(71, 57);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // Profil
-            // 
+            
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPhone = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtAddress = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnConfirm = new Guna.UI2.WinForms.Guna2Button();
+
+            // Main Panel
+            this.mainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(249)))));
+            this.mainPanel.Controls.AddRange(new System.Windows.Forms.Control[] {
+                this.profilePicture, this.lblTitle, this.txtName, this.txtPhone, 
+                this.txtAddress, this.btnConfirm
+            });
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(400, 500);
+            this.mainPanel.Padding = new System.Windows.Forms.Padding(20);
+
+            // Profile Picture
+            this.profilePicture.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.profilePicture.Location = new System.Drawing.Point(150, 50);
+            this.profilePicture.Size = new System.Drawing.Size(100, 100);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+
+            // Title
+            this.lblTitle.Text = "Profil";
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.lblTitle.Location = new System.Drawing.Point(165, 170);
+
+            // Name TextBox
+            this.txtName.PlaceholderText = "Nama Lengkap";
+            this.txtName.Location = new System.Drawing.Point(50, 220);
+            this.txtName.Size = new System.Drawing.Size(300, 45);
+            this.txtName.BorderRadius = 8;
+
+            // Phone TextBox
+            this.txtPhone.PlaceholderText = "No. Telepon";
+            this.txtPhone.Location = new System.Drawing.Point(50, 280);
+            this.txtPhone.Size = new System.Drawing.Size(300, 45);
+            this.txtPhone.BorderRadius = 8;
+
+            // Address TextBox
+            this.txtAddress.PlaceholderText = "Alamat";
+            this.txtAddress.Location = new System.Drawing.Point(50, 340);
+            this.txtAddress.Size = new System.Drawing.Size(300, 45);
+            this.txtAddress.BorderRadius = 8;
+            this.txtAddress.Multiline = true;
+
+            // Confirm Button
+            this.btnConfirm.Text = "Simpan Perubahan";
+            this.btnConfirm.Location = new System.Drawing.Point(50, 400);
+            this.btnConfirm.Size = new System.Drawing.Size(300, 45);
+            this.btnConfirm.BorderRadius = 8;
+            this.btnConfirm.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.btnConfirm.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnConfirm.ForeColor = System.Drawing.Color.White;
+
+            // Form Settings
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
-            this.Name = "Profil";
-            this.Text = "Profil";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ClientSize = new System.Drawing.Size(400, 500);
+            this.Controls.Add(this.mainPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+
+            // Initialize Elipse for rounded corners
+            this.guna2Elipse1.BorderRadius = 20;
+            this.guna2Elipse1.TargetControl = this;
+
+            // Enable form dragging
+            this.guna2DragControl1.DragStartTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this.mainPanel;
+
+            this.mainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
-
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox tbAddress;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.TextBox tbPhone;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private Guna.UI2.WinForms.Guna2Panel mainPanel;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox profilePicture;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblTitle;
+        private Guna.UI2.WinForms.Guna2TextBox txtName;
+        private Guna.UI2.WinForms.Guna2TextBox txtPhone;
+        private Guna.UI2.WinForms.Guna2TextBox txtAddress;
+        private Guna.UI2.WinForms.Guna2Button btnConfirm;
     }
 }

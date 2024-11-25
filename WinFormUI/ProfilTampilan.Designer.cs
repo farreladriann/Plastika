@@ -28,247 +28,279 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfilTampilan));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnKembali = new System.Windows.Forms.Button();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblAddress = new System.Windows.Forms.Label();
-            this.lblPhone = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lbl3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.lbl2 = new System.Windows.Forms.Label();
-            this.lbl1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.mainPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.lblNameTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblPhoneTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblAddressTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblUsernameTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblPasswordTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblEmailTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblName = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblPhone = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblAddress = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblUsername = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblPassword = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblEmail = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnUpdate = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.mainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // guna2Elipse1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.btnKembali);
-            this.panel1.Controls.Add(this.lblEmail);
-            this.panel1.Controls.Add(this.lblPassword);
-            this.panel1.Controls.Add(this.lblUsername);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.lblAddress);
-            this.panel1.Controls.Add(this.lblPhone);
-            this.panel1.Controls.Add(this.lblName);
-            this.panel1.Controls.Add(this.lbl3);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnUpdate);
-            this.panel1.Controls.Add(this.lbl2);
-            this.panel1.Controls.Add(this.lbl1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(227, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(346, 397);
-            this.panel1.TabIndex = 2;
+            this.guna2Elipse1.BorderRadius = 20;
+            this.guna2Elipse1.TargetControl = this;
             // 
-            // btnKembali
+            // guna2DragControl1
             // 
-            this.btnKembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKembali.Location = new System.Drawing.Point(43, 336);
-            this.btnKembali.Name = "btnKembali";
-            this.btnKembali.Size = new System.Drawing.Size(89, 34);
-            this.btnKembali.TabIndex = 21;
-            this.btnKembali.Text = "Kembali";
-            this.btnKembali.UseVisualStyleBackColor = true;
-            this.btnKembali.Click += new System.EventHandler(this.btnKembali_Click);
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this.mainPanel;
+            this.guna2DragControl1.UseTransparentDrag = true;
             // 
-            // lblEmail
+            // mainPanel
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(181, 301);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(51, 20);
-            this.lblEmail.TabIndex = 20;
-            this.lblEmail.Text = "Email";
+            this.mainPanel.BackColor = System.Drawing.Color.Transparent;
+            this.mainPanel.BorderRadius = 20;
+            this.mainPanel.Controls.Add(this.profilePicture);
+            this.mainPanel.Controls.Add(this.lblNameTitle);
+            this.mainPanel.Controls.Add(this.lblPhoneTitle);
+            this.mainPanel.Controls.Add(this.lblAddressTitle);
+            this.mainPanel.Controls.Add(this.lblUsernameTitle);
+            this.mainPanel.Controls.Add(this.lblPasswordTitle);
+            this.mainPanel.Controls.Add(this.lblEmailTitle);
+            this.mainPanel.Controls.Add(this.lblName);
+            this.mainPanel.Controls.Add(this.lblPhone);
+            this.mainPanel.Controls.Add(this.lblAddress);
+            this.mainPanel.Controls.Add(this.lblUsername);
+            this.mainPanel.Controls.Add(this.lblPassword);
+            this.mainPanel.Controls.Add(this.lblEmail);
+            this.mainPanel.Controls.Add(this.btnUpdate);
+            this.mainPanel.Controls.Add(this.guna2ControlBox1);
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(178)))), ((int)(((byte)(74)))));
+            this.mainPanel.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(139)))), ((int)(((byte)(58)))));
+            this.mainPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.mainPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(800, 500);
+            this.mainPanel.TabIndex = 0;
             // 
-            // lblPassword
+            // profilePicture
             // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(181, 269);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(83, 20);
-            this.lblPassword.TabIndex = 19;
-            this.lblPassword.Text = "Password";
+            this.profilePicture.BackColor = System.Drawing.Color.Transparent;
+            this.profilePicture.Image = ((System.Drawing.Image)(resources.GetObject("profilePicture.Image")));
+            this.profilePicture.ImageRotate = 0F;
+            this.profilePicture.Location = new System.Drawing.Point(350, 30);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.Size = new System.Drawing.Size(100, 100);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePicture.TabIndex = 0;
+            this.profilePicture.TabStop = false;
             // 
-            // lblUsername
+            // lblNameTitle
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(181, 236);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(86, 20);
-            this.lblUsername.TabIndex = 18;
-            this.lblUsername.Text = "Username";
+            this.lblNameTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblNameTitle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblNameTitle.ForeColor = System.Drawing.Color.White;
+            this.lblNameTitle.Location = new System.Drawing.Point(220, 200);
+            this.lblNameTitle.Name = "lblNameTitle";
+            this.lblNameTitle.Size = new System.Drawing.Size(126, 27);
+            this.lblNameTitle.TabIndex = 2;
+            this.lblNameTitle.Text = "Nama Lengkap:";
             // 
-            // label6
+            // lblPhoneTitle
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(44, 301);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 20);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Email:";
+            this.lblPhoneTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblPhoneTitle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblPhoneTitle.ForeColor = System.Drawing.Color.White;
+            this.lblPhoneTitle.Location = new System.Drawing.Point(220, 240);
+            this.lblPhoneTitle.Name = "lblPhoneTitle";
+            this.lblPhoneTitle.Size = new System.Drawing.Size(103, 27);
+            this.lblPhoneTitle.TabIndex = 3;
+            this.lblPhoneTitle.Text = "No. Telepon:";
             // 
-            // label7
+            // lblAddressTitle
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(44, 269);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 20);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Password:";
+            this.lblAddressTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblAddressTitle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblAddressTitle.ForeColor = System.Drawing.Color.White;
+            this.lblAddressTitle.Location = new System.Drawing.Point(220, 280);
+            this.lblAddressTitle.Name = "lblAddressTitle";
+            this.lblAddressTitle.Size = new System.Drawing.Size(63, 27);
+            this.lblAddressTitle.TabIndex = 4;
+            this.lblAddressTitle.Text = "Alamat:";
             // 
-            // label8
+            // lblUsernameTitle
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(44, 236);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 20);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Username:";
+            this.lblUsernameTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsernameTitle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblUsernameTitle.ForeColor = System.Drawing.Color.White;
+            this.lblUsernameTitle.Location = new System.Drawing.Point(220, 320);
+            this.lblUsernameTitle.Name = "lblUsernameTitle";
+            this.lblUsernameTitle.Size = new System.Drawing.Size(86, 27);
+            this.lblUsernameTitle.TabIndex = 5;
+            this.lblUsernameTitle.Text = "Username:";
             // 
-            // lblAddress
+            // lblPasswordTitle
             // 
-            this.lblAddress.AutoSize = true;
-            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.Location = new System.Drawing.Point(181, 206);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(61, 20);
-            this.lblAddress.TabIndex = 14;
-            this.lblAddress.Text = "Alamat";
+            this.lblPasswordTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblPasswordTitle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblPasswordTitle.ForeColor = System.Drawing.Color.White;
+            this.lblPasswordTitle.Location = new System.Drawing.Point(220, 360);
+            this.lblPasswordTitle.Name = "lblPasswordTitle";
+            this.lblPasswordTitle.Size = new System.Drawing.Size(83, 27);
+            this.lblPasswordTitle.TabIndex = 6;
+            this.lblPasswordTitle.Text = "Password:";
             // 
-            // lblPhone
+            // lblEmailTitle
             // 
-            this.lblPhone.AutoSize = true;
-            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(181, 174);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(68, 20);
-            this.lblPhone.TabIndex = 13;
-            this.lblPhone.Text = "Telepon";
+            this.lblEmailTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmailTitle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblEmailTitle.ForeColor = System.Drawing.Color.White;
+            this.lblEmailTitle.Location = new System.Drawing.Point(220, 400);
+            this.lblEmailTitle.Name = "lblEmailTitle";
+            this.lblEmailTitle.Size = new System.Drawing.Size(49, 27);
+            this.lblEmailTitle.TabIndex = 7;
+            this.lblEmailTitle.Text = "Email:";
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(181, 141);
+            this.lblName.BackColor = System.Drawing.Color.Transparent;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblName.ForeColor = System.Drawing.Color.White;
+            this.lblName.Location = new System.Drawing.Point(420, 200);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(121, 20);
-            this.lblName.TabIndex = 12;
-            this.lblName.Text = "Nama Lengkap";
+            this.lblName.Size = new System.Drawing.Size(3, 2);
+            this.lblName.TabIndex = 8;
+            this.lblName.Text = null;
             // 
-            // lbl3
+            // lblPhone
             // 
-            this.lbl3.AutoSize = true;
-            this.lbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl3.Location = new System.Drawing.Point(44, 206);
-            this.lbl3.Name = "lbl3";
-            this.lbl3.Size = new System.Drawing.Size(66, 20);
-            this.lbl3.TabIndex = 11;
-            this.lbl3.Text = "Alamat:";
+            this.lblPhone.BackColor = System.Drawing.Color.Transparent;
+            this.lblPhone.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblPhone.ForeColor = System.Drawing.Color.White;
+            this.lblPhone.Location = new System.Drawing.Point(420, 240);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(3, 2);
+            this.lblPhone.TabIndex = 9;
+            this.lblPhone.Text = null;
             // 
-            // label1
+            // lblAddress
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(137, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 29);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Profil";
+            this.lblAddress.BackColor = System.Drawing.Color.Transparent;
+            this.lblAddress.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblAddress.ForeColor = System.Drawing.Color.White;
+            this.lblAddress.Location = new System.Drawing.Point(420, 280);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(3, 2);
+            this.lblAddress.TabIndex = 10;
+            this.lblAddress.Text = null;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblUsername.ForeColor = System.Drawing.Color.White;
+            this.lblUsername.Location = new System.Drawing.Point(420, 320);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(3, 2);
+            this.lblUsername.TabIndex = 11;
+            this.lblUsername.Text = null;
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.BackColor = System.Drawing.Color.Transparent;
+            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblPassword.ForeColor = System.Drawing.Color.White;
+            this.lblPassword.Location = new System.Drawing.Point(420, 360);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(3, 2);
+            this.lblPassword.TabIndex = 12;
+            this.lblPassword.Text = null;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblEmail.ForeColor = System.Drawing.Color.White;
+            this.lblEmail.Location = new System.Drawing.Point(420, 400);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(3, 2);
+            this.lblEmail.TabIndex = 13;
+            this.lblEmail.Text = null;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(213, 336);
+            this.btnUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpdate.BorderRadius = 20;
+            this.btnUpdate.FillColor = System.Drawing.Color.White;
+            this.btnUpdate.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(178)))), ((int)(((byte)(74)))));
+            this.btnUpdate.Location = new System.Drawing.Point(340, 440);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(89, 34);
-            this.btnUpdate.TabIndex = 8;
+            this.btnUpdate.Size = new System.Drawing.Size(120, 45);
+            this.btnUpdate.TabIndex = 14;
             this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // lbl2
+            // guna2ControlBox1
             // 
-            this.lbl2.AutoSize = true;
-            this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2.Location = new System.Drawing.Point(44, 174);
-            this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(103, 20);
-            this.lbl2.TabIndex = 3;
-            this.lbl2.Text = "No. Telepon:";
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(752, 12);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(36, 29);
+            this.guna2ControlBox1.TabIndex = 15;
+            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click_1);
             // 
-            // lbl1
+            // guna2ShadowForm1
             // 
-            this.lbl1.AutoSize = true;
-            this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1.Location = new System.Drawing.Point(44, 141);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(131, 20);
-            this.lbl1.TabIndex = 1;
-            this.lbl1.Text = "Nama Lengkap: ";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(141, 52);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(71, 57);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.guna2ShadowForm1.TargetForm = this;
             // 
             // ProfilTampilan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Controls.Add(this.mainPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProfilTampilan";
-            this.Text = "ProfilTampilan";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.mainPanel.ResumeLayout(false);
+            this.mainPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lbl3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Label lbl2;
-        private System.Windows.Forms.Label lbl1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblPhone;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblAddress;
-        private System.Windows.Forms.Button btnKembali;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
+        private Guna.UI2.WinForms.Guna2GradientPanel mainPanel;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox profilePicture;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblNameTitle;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblPhoneTitle;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblAddressTitle;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblUsernameTitle;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblPasswordTitle;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblEmailTitle;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblName;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblPhone;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblAddress;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblUsername;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblPassword;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblEmail;
+        private Guna.UI2.WinForms.Guna2GradientButton btnUpdate;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
     }
 }

@@ -8,4 +8,4 @@ Anggota 2: Faundra Pratama Sukma - 22/505520/TK/55323
 
 Class Diagram Plastika:
 
-![Class diagram junpro drawio](https://github.com/user-attachments/assets/8604a890-2246-42ce-ae1a-a118cba3a10f)
+![Class diagram junpro drawio](https://github.com/user-attachments/assets/124889c1-f1ae-40d8-a731-f239a50dd166)

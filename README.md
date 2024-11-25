@@ -1,11 +1,18 @@
 # Plastika
 Aplikasi jual beli sampah dan produk dari vendor dan agen pengumpul sampah  
 
-Kelompok Plastika  
-Ketua Kelompok: Muhamad Farrel Adrian 22/505897/TK/55394  22/505897/TK/55394   
-Anggota 1: Natanael Albert - 22/503184/TK/54968  
-Anggota 2: Faundra Pratama Sukma - 22/505520/TK/55323  
+## Team
 
+**Kelompok Plastika**
+
+- **Ketua Kelompok:** Muhamad Farrel Adrian  
+  NIM: 22/505897/TK/55394
+
+- **Anggota 1:** Natanael Albert  
+  NIM: 22/503184/TK/54968
+
+- **Anggota 2:** Faundra Pratama Sukma  
+  NIM: 22/505520/TK/55323
 Class Diagram Plastika:
 
 ![Class diagram junpro drawio](https://github.com/user-attachments/assets/5fef6e5f-9597-413f-a7f7-da710abd4218)
@@ -19,19 +26,6 @@ Certainly! Below is the modified and neatly formatted GitHub README for your **P
 Aplikasi jual beli sampah dan produk dari vendor serta agen pengumpul sampah.
 
 ![Plastika Logo](https://github.com/user-attachments/assets/5fef6e5f-9597-413f-a7f7-da710abd4218) <!-- Replace with your actual logo URL -->
-
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Team](#team)
-- [Class Diagram](#class-diagram)
-- [Installation](#installation)
-  - [Prerequisites](#prerequisites)
-  - [Steps](#steps)
-- [License](#license)
-- [Contact](#contact)
 
 ## Introduction
 
@@ -77,24 +71,7 @@ With features such as user authentication, profile management, interactive maps,
 - **Google Maps API:** For map integration.
 - **Entity Framework:** For database management.
 - **Node.js:** For running the payment server using Midtrans.
-- *(Add any other libraries or tools you're using)*
 
-## Team
-
-**Kelompok Plastika**
-
-- **Ketua Kelompok:** Muhamad Farrel Adrian  
-  NIM: 22/505897/TK/55394
-
-- **Anggota 1:** Natanael Albert  
-  NIM: 22/503184/TK/54968
-
-- **Anggota 2:** Faundra Pratama Sukma  
-  NIM: 22/505520/TK/55323
-
-## Class Diagram
-
-![Class Diagram](https://github.com/user-attachments/assets/5fef6e5f-9597-413f-a7f7-da710abd4218) <!-- Replace with your actual class diagram URL -->
 
 ## Installation
 
@@ -162,30 +139,7 @@ Follow these steps to set up **Plastika** locally on your machine.
    - Build the solution by pressing `Ctrl + Shift + B` or navigating to `Build` > `Build Solution`.
    - Run the application by pressing `F5` or clicking the `Start` button.
 
-## License
 
-This project is licensed under the [MIT License](LICENSE).
-
-## Contact
-
-For any questions, suggestions, or feedback, please contact:
-
-- **Muhamad Farrel Adrian**
-  - **Email:** farrel@example.com
-  - **LinkedIn:** [Farrel Adrian](https://www.linkedin.com/in/farreladrian)
-  - **Telegram/WhatsApp:** @farreladrian
-
-- **Natanael Albert**
-  - **Email:** natanael@example.com
-  - **LinkedIn:** [Natanael Albert](https://www.linkedin.com/in/natanaelalbert)
-  - **Telegram/WhatsApp:** @natanaelalbert
-
-- **Faundra Pratama Sukma**
-  - **Email:** faundra@example.com
-  - **LinkedIn:** [Faundra Sukma](https://www.linkedin.com/in/faundrasukma)
-  - **Telegram/WhatsApp:** @faundrasukma
-
----
 
 *Last updated on November 25, 2024.*
 

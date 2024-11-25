@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tbNamaProduk = new System.Windows.Forms.TextBox();
-            this.btnKembali = new System.Windows.Forms.Button();
-            this.tbDeskripsiProduk = new System.Windows.Forms.TextBox();
-            this.btnTambahProduk = new System.Windows.Forms.Button();
-            this.btnUploadFotoProduk = new System.Windows.Forms.Button();
+            this.tbNamaProduk = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnKembali = new Guna.UI2.WinForms.Guna2Button();
+            this.tbDeskripsiProduk = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnTambahProduk = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUploadFotoProduk = new Guna.UI2.WinForms.Guna2Button();
             this.pbFotoProduk = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbKuantitasProduk = new System.Windows.Forms.TextBox();
+            this.tbKuantitasProduk = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblKuantitas = new System.Windows.Forms.Label();
-            this.tbFotoProduk = new System.Windows.Forms.TextBox();
-            this.tbHargaProduk = new System.Windows.Forms.TextBox();
+            this.tbFotoProduk = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbHargaProduk = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblHargaSatuan = new System.Windows.Forms.Label();
             this.lblKategoriProduk = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -91,6 +91,7 @@
             this.tbNamaProduk.Name = "tbNamaProduk";
             this.tbNamaProduk.Size = new System.Drawing.Size(184, 22);
             this.tbNamaProduk.TabIndex = 14;
+            this.tbNamaProduk.BorderRadius = 5;
             // 
             // btnKembali
             // 
@@ -100,8 +101,11 @@
             this.btnKembali.Size = new System.Drawing.Size(134, 52);
             this.btnKembali.TabIndex = 17;
             this.btnKembali.Text = "Kembali";
-            this.btnKembali.UseVisualStyleBackColor = true;
             this.btnKembali.Click += new System.EventHandler(this.btnKembali_Click);
+            this.btnKembali.BorderRadius = 10;
+            this.btnKembali.FillColor = System.Drawing.Color.LightCoral;
+            this.btnKembali.HoverState.FillColor = System.Drawing.Color.IndianRed;
+            this.btnKembali.HoverState.ForeColor = System.Drawing.Color.White;
             // 
             // tbDeskripsiProduk
             // 
@@ -109,6 +113,7 @@
             this.tbDeskripsiProduk.Name = "tbDeskripsiProduk";
             this.tbDeskripsiProduk.Size = new System.Drawing.Size(184, 22);
             this.tbDeskripsiProduk.TabIndex = 16;
+            this.tbDeskripsiProduk.BorderRadius = 5;
             // 
             // btnTambahProduk
             // 
@@ -118,8 +123,11 @@
             this.btnTambahProduk.Size = new System.Drawing.Size(134, 52);
             this.btnTambahProduk.TabIndex = 9;
             this.btnTambahProduk.Text = "Tambah";
-            this.btnTambahProduk.UseVisualStyleBackColor = true;
             this.btnTambahProduk.Click += new System.EventHandler(this.btnTambahProduk_Click);
+            this.btnTambahProduk.BorderRadius = 10;
+            this.btnTambahProduk.FillColor = System.Drawing.Color.LightBlue;
+            this.btnTambahProduk.HoverState.FillColor = System.Drawing.Color.SkyBlue;
+            this.btnTambahProduk.HoverState.ForeColor = System.Drawing.Color.White;
             // 
             // btnUploadFotoProduk
             // 
@@ -129,8 +137,11 @@
             this.btnUploadFotoProduk.Size = new System.Drawing.Size(171, 41);
             this.btnUploadFotoProduk.TabIndex = 10;
             this.btnUploadFotoProduk.Text = "Upload Foto";
-            this.btnUploadFotoProduk.UseVisualStyleBackColor = true;
             this.btnUploadFotoProduk.Click += new System.EventHandler(this.btnUploadFotoProduk_Click);
+            this.btnUploadFotoProduk.BorderRadius = 10;
+            this.btnUploadFotoProduk.FillColor = System.Drawing.Color.LightGreen;
+            this.btnUploadFotoProduk.HoverState.FillColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnUploadFotoProduk.HoverState.ForeColor = System.Drawing.Color.White;
             // 
             // pbFotoProduk
             // 
@@ -139,6 +150,7 @@
             this.pbFotoProduk.Size = new System.Drawing.Size(225, 117);
             this.pbFotoProduk.TabIndex = 8;
             this.pbFotoProduk.TabStop = false;
+            this.pbFotoProduk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             // 
             // label1
             // 
@@ -156,6 +168,7 @@
             this.tbKuantitasProduk.Name = "tbKuantitasProduk";
             this.tbKuantitasProduk.Size = new System.Drawing.Size(184, 22);
             this.tbKuantitasProduk.TabIndex = 5;
+            this.tbKuantitasProduk.BorderRadius = 5;
             // 
             // lblKuantitas
             // 
@@ -173,6 +186,7 @@
             this.tbFotoProduk.Name = "tbFotoProduk";
             this.tbFotoProduk.Size = new System.Drawing.Size(225, 22);
             this.tbFotoProduk.TabIndex = 7;
+            this.tbFotoProduk.BorderRadius = 5;
             // 
             // tbHargaProduk
             // 
@@ -180,6 +194,7 @@
             this.tbHargaProduk.Name = "tbHargaProduk";
             this.tbHargaProduk.Size = new System.Drawing.Size(184, 22);
             this.tbHargaProduk.TabIndex = 6;
+            this.tbHargaProduk.BorderRadius = 5;
             // 
             // lblHargaSatuan
             // 
@@ -207,6 +222,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.BackColor = System.Drawing.Color.White;
             this.Name = "TambahProduk";
             this.Text = "TambahProducts";
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -220,17 +238,17 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox tbNamaProduk;
-        private System.Windows.Forms.Button btnKembali;
-        private System.Windows.Forms.TextBox tbDeskripsiProduk;
-        private System.Windows.Forms.Button btnTambahProduk;
-        private System.Windows.Forms.Button btnUploadFotoProduk;
+        private Guna.UI2.WinForms.Guna2TextBox tbNamaProduk;
+        private Guna.UI2.WinForms.Guna2Button btnKembali;
+        private Guna.UI2.WinForms.Guna2TextBox tbDeskripsiProduk;
+        private Guna.UI2.WinForms.Guna2Button btnTambahProduk;
+        private Guna.UI2.WinForms.Guna2Button btnUploadFotoProduk;
         private System.Windows.Forms.PictureBox pbFotoProduk;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbKuantitasProduk;
+        private Guna.UI2.WinForms.Guna2TextBox tbKuantitasProduk;
         private System.Windows.Forms.Label lblKuantitas;
-        private System.Windows.Forms.TextBox tbFotoProduk;
-        private System.Windows.Forms.TextBox tbHargaProduk;
+        private Guna.UI2.WinForms.Guna2TextBox tbFotoProduk;
+        private Guna.UI2.WinForms.Guna2TextBox tbHargaProduk;
         private System.Windows.Forms.Label lblHargaSatuan;
         private System.Windows.Forms.Label lblKategoriProduk;
     }
